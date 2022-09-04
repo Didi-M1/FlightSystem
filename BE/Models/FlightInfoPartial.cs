@@ -8,6 +8,21 @@ namespace BE.Models
 {
     public class FlightInfoPartial
     {
+        public FlightInfoPartial(int id, string sourceId, double @long, double lat, DateTime dateAndTime, string source, string destination, string flightCode)
+        {
+            Id = id;
+            SourceId = sourceId;
+            Long = @long;
+            Lat = lat;
+            DateAndTime = dateAndTime;
+            Source = source;
+            Destination = destination;
+            FlightCode = flightCode;
+        }
+        public FlightInfoPartial()
+        {
+
+        }
         public int Id { get; set; }
 
         public string SourceId { get; set; }
