@@ -45,6 +45,7 @@
     <Compile Include="Models\FlightInfo.cs" />
     <Compile Include="Models\FlightInfoPartial.cs" />
     <Compile Include="Models\HelperClass.cs" />
+    <Compile Include="Models\HolydatesInfo.cs" />
     <Compile Include="Models\WeatherSystem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

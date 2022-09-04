@@ -17,5 +17,9 @@ namespace BE.Models
             start = start.AddSeconds(EpochTimeStamp); //add the seconds to the start DateTime
             return start;
         }
+        public DateTime GetDateTimeFromString(string date)
+        {
+            return DateTime.Parse(date);
+        }
     }
 }
