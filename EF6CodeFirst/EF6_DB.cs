@@ -7,16 +7,9 @@ using BE.Models;
 using DAL;
 namespace EF6CodeFirst
 {
-    class Program
+    public class EF6_DB
     {
-        static void Main(string[] args)
-        {
-            int id = 1;
-            AddFlight(new FlightInfoPartial(id,"TLV",1000,1000,DateTime.Now,"Natbag","Maroco","ffffff"));
-            var f= GetFlight(1);
-            RemoveFlight(f.Id);
-        }
-        static void AddFlight(FlightInfoPartial flight)
+        public static void AddFlight(FlightInfoPartial flight)
         {
             using (var ctx = new LocalDB())
             {
@@ -26,7 +19,7 @@ namespace EF6CodeFirst
 
         }
 
-        static void RemoveFlight(int id)
+        public static void RemoveFlight(int id)
         {
             using (var ctx = new LocalDB())
             {
@@ -35,7 +28,7 @@ namespace EF6CodeFirst
             }
 
         }
-        static FlightInfoPartial GetFlight(int  id)
+        public static FlightInfoPartial GetFlight(int  id)
         {
             using (var ctx = new LocalDB())
             {

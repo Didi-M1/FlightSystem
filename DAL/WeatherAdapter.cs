@@ -7,7 +7,7 @@ using BE.Models;
 
 namespace DAL
 {
-    public class Weather
+    public class WeatherAdapter
     {
         public const string AllURL = @"http://api.openweathermap.org/data/2.5/forecast?id=524901&appid=";
         public const string URLbaseOnLocation = @"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}";

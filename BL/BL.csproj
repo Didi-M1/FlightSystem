@@ -42,14 +42,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="flightBL.cs" />
-    <Compile Include="IBL_USER.cs" />
+    <Compile Include="FlightBL.cs" />
+    <Compile Include="IFlightBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BE\BE.csproj">
       <Project>{bae2de65-9a74-41b1-bfd4-322121c514a2}</Project>
       <Name>BE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{c1a2c9be-486a-4068-bb50-22ca86b943c3}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EF6CodeFirst\EF6CodeFirst.csproj">
+      <Project>{029532dd-8d8b-4f17-bf0e-c239159a8720}</Project>
+      <Name>EF6CodeFirst</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -19,8 +19,6 @@ namespace DAL
             Dictionary<string, List<FlightInfoPartial>> Result = new Dictionary<string, List<FlightInfoPartial>>();
 
             JObject AllFlightData = null;
-            IList<string> Keys = null;
-            IList<Object> Values = null;
 
             List<FlightInfoPartial> Incoming = new List<FlightInfoPartial>();
             List<FlightInfoPartial> Outgoing = new List<FlightInfoPartial>();
