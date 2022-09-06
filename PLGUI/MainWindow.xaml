@@ -35,6 +35,11 @@
         <Grid>
             <m:Map CredentialsProvider="Am7ABZsl1hVs093AjZV82C3wxd-NCQ-KtBLpdtv4uB1UBvqIx7vcgN7Dw1A9RpQt" x:Name="myMap" Margin="188,62,121,89">
                 <m:Pushpin Location="34.620574,34.34942"/>
+                <m:MapPolyline Stroke="Blue" StrokeThickness="5" 
+                 Locations="47.6424,-122.3219 47.8424,-122.1747 47.5814,-122.1747 47.67856,-122.130994" 
+                 Opacity="0.7" 
+                
+                               />
             </m:Map>
 
         </Grid>

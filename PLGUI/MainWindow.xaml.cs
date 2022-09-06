@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Maps.MapControl.WPF;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,23 @@ namespace PLGUI
         public MainWindow()
         {
             InitializeComponent();
+            addNewPolyline();
+
+        }
+        void addNewPolyline()
+        {
+            MapPolyline polyline = new MapPolyline();
+            polyline.Stroke = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Colors.Blue);
+            polyline.StrokeThickness = 5;
+            polyline.Opacity = 0.7;
+            polyline.StrokeEndLineCap = PenLineCap.Triangle;
+            polyline.StrokeDashArray = new DoubleCollection()
+            {0.1};
+            polyline.Locations = new LocationCollection() {
+            new Location(31.27330610835083, 34.77931980666788),
+            new Location(48.20471106811736, 16.37565655829858)};
+
+            myMap.Children.Add(polyline);
         }
     }
 }
