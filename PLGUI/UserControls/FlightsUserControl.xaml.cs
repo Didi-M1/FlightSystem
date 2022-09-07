@@ -20,6 +20,9 @@ namespace PLGUI.UserControls
     /// </summary>
     public partial class FlightsUserControl : UserControl
     {
+        //view modle 
+
+        //add dataContex to view modle - Biding to view modle
         public FlightsUserControl()
         {
             InitializeComponent();

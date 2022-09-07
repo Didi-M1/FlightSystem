@@ -34,7 +34,6 @@
     <Grid>
         <Grid>
             <m:Map CredentialsProvider="Am7ABZsl1hVs093AjZV82C3wxd-NCQ-KtBLpdtv4uB1UBvqIx7vcgN7Dw1A9RpQt" x:Name="myMap" Margin="188,62,121,89">
-                <m:Pushpin Location="34.620574,34.34942"/>
             </m:Map>
 
         </Grid>

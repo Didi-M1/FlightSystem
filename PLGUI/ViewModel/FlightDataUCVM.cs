@@ -8,5 +8,8 @@ namespace PLGUI.ViewModel
 {
     class FlightDataUCVM
     {
+
+
+        // var of modle, command 
     }
 }

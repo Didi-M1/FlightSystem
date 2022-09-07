@@ -31,6 +31,7 @@ namespace BE.Models
 
         public double Lat { get; set; }
 
+
         public DateTime DateAndTime { get; set; }
 
         public string Source { get; set; }
