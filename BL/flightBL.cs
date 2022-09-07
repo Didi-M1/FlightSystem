@@ -6,7 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using BE.Models;
 using DAL;
-using EF6CodeFirst;
+using DAL.LocalDBManagement;
+
 namespace BL
 {
     public class FlightBL : IFlightBL
@@ -18,7 +19,8 @@ namespace BL
 
         public FlightInfoPartial getFlightInfo(int flightID)
         {
-            return EF6CodeFirst.EF6_DB.GetFlight(flightID);
+            DBChange db = new DBChange();
+            return db.GetFlight(flightID);
         }
 
         public WeatherSystem getWatherInfo(string lat, string lon)
@@ -37,14 +39,16 @@ namespace BL
 
         public void addFLightToSaves(FlightInfoPartial flight)
         {
-            EF6CodeFirst.EF6_DB.AddFlight(flight);
+            DBChange db = new DBChange();
+            db.AddFlight(flight);
         }
 
         public void removeFLightFromSaves(int flight)
         {
             try
             {
-                EF6CodeFirst.EF6_DB.RemoveFlight(flight);
+                DBChange db = new DBChange();
+                db.RemoveFlight(flight);
             }
             catch (Exception e)
             {

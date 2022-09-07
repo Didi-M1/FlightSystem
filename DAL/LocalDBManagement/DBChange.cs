@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BE.Models;
-using DAL;
-namespace EF6CodeFirst
+
+namespace DAL.LocalDBManagement
 {
-    public class EF6_DB
+    public class DBChange
     {
-        public static void AddFlight(FlightInfoPartial flight)
+        public void AddFlight(FlightInfoPartial flight)
         {
             using (var ctx = new LocalDB())
             {
@@ -19,16 +19,16 @@ namespace EF6CodeFirst
 
         }
 
-        public static void RemoveFlight(int id)
+        public void RemoveFlight(int id)
         {
             using (var ctx = new LocalDB())
             {
-               ctx.DBFligths.Remove(ctx.DBFligths.Where(F => F.Id == id).FirstOrDefault());
+                ctx.DBFligths.Remove(ctx.DBFligths.Where(F => F.Id == id).FirstOrDefault());
                 ctx.SaveChanges();
             }
 
         }
-        public static FlightInfoPartial GetFlight(int  id)
+        public  FlightInfoPartial GetFlight(int id)
         {
             using (var ctx = new LocalDB())
             {

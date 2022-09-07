@@ -70,6 +70,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\UpdateFlightsCommand.cs" />
     <Compile Include="Modles\FlightModle.cs" />
     <Compile Include="Modles\WhetherModle.cs" />
     <Compile Include="UserControls\FlightDataUserControl.xaml.cs">

@@ -59,9 +59,15 @@ namespace DAL
                 return Result;
             }
         }
-
-
-
-
+        public FlightInfo GetFlight(string flightCode)
+        {
+            JObject FlightData = null;
+            using (var webClient = new System.Net.WebClient())
+            {              
+                var json = webClient.DownloadString(FlightURL + flightCode);
+                FlightData = JObject.Parse(json);
+            }
+            return null;
+        }
     }
 }
