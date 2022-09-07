@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Maps.MapControl.WPF;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +13,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using BE.Models;
-using BL;
-using Microsoft.Maps.MapControl.WPF;
 
 namespace PLGUI
 {
@@ -23,28 +21,12 @@ namespace PLGUI
     /// </summary>
     public partial class MainWindow : Window
     {
-        IFlightBL BL = new FlightBL();
         public MainWindow()
         {
             InitializeComponent();
-            Dictionary<string, List<FlightInfoPartial>> flights = BL.getAllFlights();
-            foreach (var item in flights)
-            {
-                foreach (var flight in item.Value)
-                {
-                    Location location = new Location(flight.Lat, flight.Long);
-                    Pushpin pushpin = new Pushpin();
-                    pushpin.Location = location;
-                    pushpin.Content = flight.FlightCode;
-                    pushpin.Background = Brushes.Red;
-                    pushpin.Foreground = Brushes.White;
-                    pushpin.ToolTip = flight.FlightCode;
-                    myMap.Children.Add(pushpin);
-                }
-            }
             addNewPolyline();
-        }
 
+        }
         void addNewPolyline()
         {
             MapPolyline polyline = new MapPolyline();
@@ -53,7 +35,7 @@ namespace PLGUI
             polyline.Opacity = 0.7;
             polyline.StrokeEndLineCap = PenLineCap.Triangle;
             polyline.StrokeDashArray = new DoubleCollection()
-            {0.5};
+            {0.1};
             polyline.Locations = new LocationCollection() {
             new Location(31.27330610835083, 34.77931980666788),
             new Location(48.20471106811736, 16.37565655829858)};
@@ -61,6 +43,4 @@ namespace PLGUI
             myMap.Children.Add(polyline);
         }
     }
-
-    
 }
