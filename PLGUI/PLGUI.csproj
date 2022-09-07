@@ -71,8 +71,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\UpdateFlightsCommand.cs" />
-    <Compile Include="Modles\FlightModle.cs" />
-    <Compile Include="Modles\WhetherModle.cs" />
+    <Compile Include="Models\FlightModle.cs" />
+    <Compile Include="Models\WhetherModel.cs" />
     <Compile Include="UserControls\FlightDataUserControl.xaml.cs">
       <DependentUpon>FlightDataUserControl.xaml</DependentUpon>
     </Compile>

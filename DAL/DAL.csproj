@@ -52,6 +52,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -60,9 +62,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AirportsInfo.cs" />
     <Compile Include="FlagByCountrey.cs" />
+    <Compile Include="LocalDBManagement\FlightsShowDB.cs" />
     <Compile Include="HolyDates.cs" />
-    <Compile Include="LocalDBManagement\DBChange.cs" />
+    <Compile Include="LocalDBManagement\DBManage.cs" />
     <Compile Include="LocalDBManagement\LocalDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TrafficAdapter.cs" />

@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BE.Models;
 using DAL;
-using DAL.LocalDBManagement;
+
 
 namespace BL
 {
@@ -19,7 +19,7 @@ namespace BL
 
         public FlightInfoPartial getFlightInfo(int flightID)
         {
-            DBChange db = new DBChange();
+            DBManage db = new DBManage();
             return db.GetFlight(flightID);
         }
 
@@ -39,7 +39,7 @@ namespace BL
 
         public void addFLightToSaves(FlightInfoPartial flight)
         {
-            DBChange db = new DBChange();
+            DBManage db = new DBManage();
             db.AddFlight(flight);
         }
 
@@ -47,7 +47,7 @@ namespace BL
         {
             try
             {
-                DBChange db = new DBChange();
+                DBManage db = new DBManage();
                 db.RemoveFlight(flight);
             }
             catch (Exception e)

@@ -10,7 +10,7 @@ namespace PLGUI.Modles
     internal class FlightModle
     {
         //list of flights
-        public List<BE.Models.FlightInfoPartial> flights { get; set; }
+        public List<FlightInfoPartial> flights { get; set; }
         private IFlightBL Bl;
         FlightModle()
         {

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using System.ComponentModel.DataAnnotations;
+
 namespace BE.Models
 {
     public class WeatherSystem
@@ -84,10 +86,13 @@ namespace BE.Models
 
     public class Airport
     {
+        public Coord Location { get; set; }
         public string country { get; set; }
         public string city { get; set; }
         public string name { get; set; }
-        public int id { get; set; }
+        [Key]
+        [MaxLength(5)]
+        public string id { get; set; }
         public bool isActive { get; set; }
 
     }
