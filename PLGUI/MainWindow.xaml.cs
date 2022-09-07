@@ -13,6 +13,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BE.Models;
+using BL;
+using Microsoft.Maps.MapControl.WPF;
 
 namespace PLGUI
 {
@@ -21,6 +24,7 @@ namespace PLGUI
     /// </summary>
     public partial class MainWindow : Window
     {
+        IFlightBL BL = new FlightBL();
         public MainWindow()
         {
             InitializeComponent();
@@ -42,5 +46,8 @@ namespace PLGUI
 
             myMap.Children.Add(polyline);
         }
+
     }
+
+    
 }

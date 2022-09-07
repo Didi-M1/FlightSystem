@@ -16,15 +16,13 @@ using System.Windows.Shapes;
 namespace PLGUI.UserControls
 {
     /// <summary>
-    /// Interaction logic for FlightDataUserControl.xaml
+    /// Interaction logic for FlightTableUserControl.xaml
     /// </summary>
-    public partial class FlightDataUserControl : UserControl
+    public partial class FlightTableUserControl : UserControl
     {
-        public FlightDataUserControl()
+        public FlightTableUserControl()
         {
             InitializeComponent();
-            
-
         }
     }
 }

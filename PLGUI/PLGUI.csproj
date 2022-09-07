@@ -78,6 +78,9 @@
     <Compile Include="UserControls\FlightsUserControl.xaml.cs">
       <DependentUpon>FlightsUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\FlightTableUserControl.xaml.cs">
+      <DependentUpon>FlightTableUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\HeaderUserControl.xaml.cs">
       <DependentUpon>HeaderUserControl.xaml</DependentUpon>
     </Compile>
@@ -109,6 +112,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\FlightsUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\FlightTableUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -167,6 +174,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Commend\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\airplane-selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\backgrondForFlightData.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\arrowSymble.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.5.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.5.0\build\MaterialDesignThemes.targets')" />
