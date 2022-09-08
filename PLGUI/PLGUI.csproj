@@ -189,7 +189,9 @@
       <Name>BL</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="images\images.jpg" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="images\airplane-selected.png" />
   </ItemGroup>

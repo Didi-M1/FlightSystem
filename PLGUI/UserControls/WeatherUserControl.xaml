@@ -5,8 +5,16 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PLGUI.UserControls"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+             d:DesignHeight="450" Width="683">
+    <Grid Margin="10,0,104,0">
+        <!-- canvas with background image name images.jpg -->
+        <Canvas Background="White" Width="670" Height="450">
+            <Image Source="..\images\images.jpg" Width="673" Height="450" HorizontalAlignment="Left" Canvas.Left="10" VerticalAlignment="Center" />
+            <Label Content="{Binding place}" FontSize="20" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"  />
+            <Label Content="{Binding temp}" FontSize="20" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" />
+            <Label Content="{Binding description}" FontSize="20" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" />
+            <Label Content="{Binding wind}" FontSize="20" HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top" />
+            <Label Content="{Binding humidity}" FontSize="20" HorizontalAlignment="Left" Margin="10,170,0,0" VerticalAlignment="Top" />
+        </Canvas>
     </Grid>
 </UserControl>
