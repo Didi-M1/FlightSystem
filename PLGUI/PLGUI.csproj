@@ -99,6 +99,9 @@
     <Compile Include="UserControls\MapUserControl.xaml.cs">
       <DependentUpon>MapUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\WeatherUserControl.xaml.cs">
+      <DependentUpon>WeatherUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\FlightDataUCVM.cs" />
     <Compile Include="ViewModel\FlightsUCVM.cs" />
     <Compile Include="ViewModel\HeaderUCVM.cs" />
@@ -137,6 +140,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\MapUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\WeatherUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

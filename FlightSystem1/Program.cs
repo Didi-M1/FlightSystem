@@ -18,8 +18,9 @@ namespace FlightSystem1
                 string airPortName = flight.Value[0].Source;
                 var airPort = new AirportsInfo();
                 var airPortInfo = airPort.getAirPortinfo(airPortName);
-                FlagByCountrey flag = new FlagByCountrey();
-                string flagPath = flag.getImageByName(airPortInfo.country);
+                var weather = new WeatherAdapter();
+                var weatherInfo = weather.GetCurrentWeather(airPortInfo.Location.lat.ToString(), airPortInfo.Location.lon.ToString()) ;
+                Console.WriteLine(weatherInfo);
                 Console.WriteLine(flight);
             }
             
