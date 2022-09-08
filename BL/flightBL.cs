@@ -82,6 +82,7 @@ namespace BL
 
         public Tuple<string, string> getPathToFlagsForSourceAndDes(FlightInfoPartial flight)
         {
+            
             AirportsInfo airports = new AirportsInfo();
             string source = flight.Source;
             string des = flight.Destination;

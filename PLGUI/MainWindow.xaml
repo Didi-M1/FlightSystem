@@ -35,12 +35,12 @@
     <Grid>
         <Grid>
             <m:Map CredentialsProvider="Am7ABZsl1hVs093AjZV82C3wxd-NCQ-KtBLpdtv4uB1UBvqIx7vcgN7Dw1A9RpQt" x:Name="myMap"  Margin="188,62,121,89">
-                <m:MapItemsControl ItemsSource="{Binding flights}">
+                <m:MapItemsControl ItemsSource="{Binding Incomaingflights}">
                     <m:MapItemsControl.ItemTemplate>
                         <DataTemplate>
                             <m:Pushpin>
                                 <m:Pushpin.Location>
-                                    <Binding Path="Location"/>
+                                    <Binding Path="{Binding Location}"/>
                                 </m:Pushpin.Location>
                             </m:Pushpin>
                         </DataTemplate>

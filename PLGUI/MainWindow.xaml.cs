@@ -15,7 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BE.Models;
 using BL;
-using Microsoft.Maps.MapControl.WPF;
+using PLGUI.ViewModel;
 
 namespace PLGUI
 {
@@ -24,32 +24,34 @@ namespace PLGUI
     /// </summary>
     public partial class MainWindow : Window
     {
-        IFlightBL BL = new FlightBL();
+        PLGUI.ViewModel.FlightsUCVM flightsUCVM;
         public MainWindow()
         {
-            
-            InitializeComponent();
-            
-            addNewPolyline();
 
+            InitializeComponent();
+
+            flightsUCVM = new ViewModel.FlightsUCVM();
+            flightsUCVM.getAllFlights();
+            this.DataContext = flightsUCVM;
         }
-        void addNewPolyline()
+
+
+        private void DrawLines(FlightInfoPartial item, Location location)
         {
+            /*
+            var airPortA = bl.GetAirportInfo(item.Source);
+            Location locationA = new Location(airPortA.Location.lat, airPortA.Location.lon);
+            var airPortB = bl.GetAirportInfo(item.Destination);
+            Location locationB = new Location(airPortB.Location.lat, airPortB.Location.lon);
             MapPolyline polyline = new MapPolyline();
-            polyline.Stroke = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Colors.Blue);
+            polyline.Stroke = new SolidColorBrush(Colors.Blue);
             polyline.StrokeThickness = 5;
             polyline.Opacity = 0.7;
-            polyline.StrokeEndLineCap = PenLineCap.Triangle;
-            polyline.StrokeDashArray = new DoubleCollection()
-            {0.1};
-            polyline.Locations = new LocationCollection() {
-            new Location(31.27330610835083, 34.77931980666788),
-            new Location(48.20471106811736, 16.37565655829858)};
-
+            polyline.Locations = new LocationCollection() { locationA, location, locationB };
             myMap.Children.Add(polyline);
+            */
         }
-
     }
-
-    
 }
+
+

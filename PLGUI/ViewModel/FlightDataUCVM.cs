@@ -27,6 +27,10 @@ namespace PLGUI.ViewModel
         {
             get
             {
+                if (selectedFlight == null)
+                {
+                    return @"../Images/un.png";
+                }
                 return model.pathToFlags.Item1;
             }
         }
@@ -34,6 +38,10 @@ namespace PLGUI.ViewModel
         {
             get
             {
+                if (selectedFlight == null)
+                {
+                    return @"../Images/un.png";
+                }
                 return model.pathToFlags.Item2;
             }
         }
