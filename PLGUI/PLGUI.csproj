@@ -80,6 +80,7 @@
     </ApplicationDefinition>
     <Compile Include="Commands\ChangeSelectedFlightCommand.cs" />
     <Compile Include="Commands\UpdateFlightsCommand.cs" />
+    <Compile Include="Models\FlightDataModel.cs" />
     <Compile Include="Models\FlightModel.cs" />
     <Compile Include="Models\WhetherModel.cs" />
     <Compile Include="UserControls\FlightDataUserControl.xaml.cs">
