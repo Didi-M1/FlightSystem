@@ -21,11 +21,13 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type m:Pushpin}">
                         <Grid>
-                            <Rectangle Width="24" Height="24">
-                                <Rectangle.Fill>
-                                    <ImageBrush ImageSource= "./images/airplane.png"/>
-                                </Rectangle.Fill>
-                            </Rectangle>
+                            <Button Content="Button" Click="Button_Click" HorizontalAlignment="Left" Height="24" Width="24" VerticalAlignment="Top">
+                                <Button.Template> 
+                                    <ControlTemplate>
+                                        <Image Source="..\images\airplane.png"/>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
                         </Grid>
                     </ControlTemplate>
                 </Setter.Value>
@@ -35,12 +37,12 @@
     <Grid>
         <Grid>
             <m:Map CredentialsProvider="Am7ABZsl1hVs093AjZV82C3wxd-NCQ-KtBLpdtv4uB1UBvqIx7vcgN7Dw1A9RpQt" x:Name="myMap"  Margin="188,62,121,89">
-                <m:MapItemsControl ItemsSource="{Binding Incomaingflights}">
+                <m:MapItemsControl Name="mapControl">
                     <m:MapItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <m:Pushpin>
+                            <m:Pushpin >
                                 <m:Pushpin.Location>
-                                    <Binding Path="{Binding Location}"/>
+                                    <Binding Path="Location" />
                                 </m:Pushpin.Location>
                             </m:Pushpin>
                         </DataTemplate>
@@ -48,7 +50,6 @@
                 </m:MapItemsControl>
             </m:Map>
             <UserControls:FlightDataUserControl HorizontalAlignment="Left" Margin="188,1190,0,0" VerticalAlignment="Top"/>
-
         </Grid>
     </Grid>
 </Window>

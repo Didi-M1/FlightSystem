@@ -20,7 +20,7 @@
                 </VisualBrush>
             </Canvas.Background>
             <Image x:Name="image1" Width="225" Height="179" Canvas.Left="7" Canvas.Top="261" Source="{Binding pathToFlagSorce}"/>
-            <Image x:Name="image2" Width="217" Height="215" Canvas.Left="524" Canvas.Top="225" Source="{Binding pathToFlagDestination}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <Image x:Name="image2" Width="217" Height="216" Canvas.Left="578" Canvas.Top="242" Source="{Binding pathToFlagDestination}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
             <Label Name="FlightNumberLable" Content="Flight number:" Canvas.Left="82" Canvas.Top="41"/>
             <!-- Flight source, destination, time, date, passengers, company, model -->

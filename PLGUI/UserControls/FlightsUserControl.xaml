@@ -7,13 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Height="24" Width="24" VerticalAlignment="Top">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="..\images\airplane.png"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
+       
 
     </Grid>
 </UserControl>

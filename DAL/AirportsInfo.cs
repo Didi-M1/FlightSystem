@@ -58,7 +58,7 @@ namespace DAL
             if (result != null) return result;
             result= GetAirportFromWeb(iata_code);
             DBManage dB = new DBManage();
-        //    dB.AddAirPort(result);
+           dB.AddAirPort(result);
             return result;
         }
     }
