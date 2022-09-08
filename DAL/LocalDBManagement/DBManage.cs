@@ -9,7 +9,7 @@ namespace DAL
 {
     public class DBManage
     {
-        public void AddAirPort(Airport newAitport)
+        public void AddAirPort(AirPort newAitport)
         {
             using (var ctx = new FlightsShowDB())
             {
@@ -17,7 +17,7 @@ namespace DAL
                 ctx.SaveChanges();
             }
         }
-        public Airport getAirPort(string airCode)
+        public AirPort getAirPort(string airCode)
         {
             using (var ctx = new FlightsShowDB())
             {

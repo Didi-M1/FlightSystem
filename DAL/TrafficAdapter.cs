@@ -1,8 +1,11 @@
 ﻿using BE.Models;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -43,12 +46,12 @@ namespace DAL
                         if (key == "version")
                             continue;
                         if (item.Value[11].ToString() == "TLV")
-                            Outgoing.Add(new FlightInfoPartial { Id = -1, Source = item.Value[11].ToString(), Destination = item.Value[12].ToString(), SourceId = key, Long = Convert.ToDouble(item.Value[2]), Lat = Convert.ToDouble(item.Value[1]), DateAndTime = Helper.GetDateTimeFromEpoch(Convert.ToDouble(item.Value[10])), FlightCode = item.Value[13].ToString()});
-                        if(item.Value[12].ToString() == "TLV")
+                            Outgoing.Add(new FlightInfoPartial { Id = -1, Source = item.Value[11].ToString(), Destination = item.Value[12].ToString(), SourceId = key, Long = Convert.ToDouble(item.Value[2]), Lat = Convert.ToDouble(item.Value[1]), DateAndTime = Helper.GetDateTimeFromEpoch(Convert.ToDouble(item.Value[10])), FlightCode = item.Value[13].ToString() });
+                        if (item.Value[12].ToString() == "TLV")
                             Incoming.Add(new FlightInfoPartial { Id = -1, Source = item.Value[11].ToString(), Destination = item.Value[12].ToString(), SourceId = key, Long = Convert.ToDouble(item.Value[2]), Lat = Convert.ToDouble(item.Value[1]), DateAndTime = Helper.GetDateTimeFromEpoch(Convert.ToDouble(item.Value[10])), FlightCode = item.Value[13].ToString() });
                     }
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
                     Debug.Print(e.Message);
                 }
@@ -59,15 +62,15 @@ namespace DAL
                 return Result;
             }
         }
-        public FlightInfo GetFlight(string flightCode)
+        public FlightInfo GetFlight(string sourceID)
         {
-            JObject FlightData = null;
+            FlightInfo result = new FlightInfo();
             using (var webClient = new System.Net.WebClient())
-            {              
-                var json = webClient.DownloadString(FlightURL + flightCode);
-                FlightData = JObject.Parse(json);
+            {
+                var json = webClient.DownloadString(FlightURL + sourceID);
+                result = JsonConvert.DeserializeObject<FlightInfo>(json);             
             }
-            return null;
+            return result;
         }
     }
 }

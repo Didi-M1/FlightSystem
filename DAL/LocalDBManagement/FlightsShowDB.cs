@@ -21,7 +21,7 @@ namespace DAL
         // on configuring and using a Code First model, see http://go.microsoft.com/fwlink/?LinkId=390109.
 
         public DbSet<BE.Models.FlightInfoPartial> DBFligths { get; set; }
-        public DbSet<BE.Models.Airport> DBAirports { get; set; }
+        public DbSet<BE.Models.AirPort> DBAirports { get; set; }
     }
 
 }

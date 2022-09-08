@@ -14,7 +14,7 @@ namespace DAL
     {
         string url = "https://airlabs.co/api/v9/airports?";
         string apiKey = "4e775779-9df6-4d2c-a119-1a73b319cae0";
-        private Airport getAirPortinfoFromLocal(string iata_code)
+        private AirPort getAirPortinfoFromLocal(string iata_code)
         {
             try
             {
@@ -26,9 +26,9 @@ namespace DAL
                 return null;
             }
         }
-        private Airport GetAirportFromWeb(string iata_code)
+        private AirPort GetAirportFromWeb(string iata_code)
         {
-            Airport result = new Airport();
+            AirPort result = new AirPort();
             result.id = iata_code;
             string Url = url + "iata_code=" + iata_code + "&api_key=" + apiKey;
             JObject AirPortsInfo = null;
@@ -52,9 +52,9 @@ namespace DAL
                 return null;
             }
         }
-        public Airport getAirPortinfo(string iata_code)
+        public AirPort getAirPortinfo(string iata_code)
         {
-            Airport result = getAirPortinfoFromLocal(iata_code);
+            AirPort result = getAirPortinfoFromLocal(iata_code);
             if (result != null) return result;
             result= GetAirportFromWeb(iata_code);
             DBManage dB = new DBManage();

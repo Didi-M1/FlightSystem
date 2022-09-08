@@ -27,7 +27,9 @@ namespace PLGUI
         IFlightBL BL = new FlightBL();
         public MainWindow()
         {
+            
             InitializeComponent();
+            
             addNewPolyline();
 
         }
