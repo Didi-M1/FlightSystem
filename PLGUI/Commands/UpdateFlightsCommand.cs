@@ -9,17 +9,22 @@ namespace PLGUI.Commands
     class UpdateFlightsCommand : ICommand
     {
         public event EventHandler CanExecuteChanged;
+        PLGUI.ViewModel.FlightsUCVM VM;
+
+        public UpdateFlightsCommand(PLGUI.ViewModel.FlightsUCVM vm)
+        {
+            VM = vm;
+        }
 
         public bool CanExecute(object parameter)
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         public void Execute(object parameter)
         {
             if (!CanExecute(parameter)) return;
-            
-
+            VM.getAllFlights();           
         }
     }
 }

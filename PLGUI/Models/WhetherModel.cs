@@ -16,8 +16,8 @@ namespace PLGUI.Modles
         {
             Bl = new FlightBL();
         }
+
         
-        //command var to update the list
 
     }
 }

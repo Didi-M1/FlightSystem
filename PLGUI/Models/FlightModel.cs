@@ -7,12 +7,12 @@ using BE.Models;
 using BL;
 namespace PLGUI.Modles
 {
-    internal class FlightModle
+    internal class FlightModel
     {
         //list of flights
         public List<FlightInfoPartial> flights { get; set; }
         private IFlightBL Bl;
-        FlightModle()
+        public FlightModel()
         {
             Bl = new FlightBL();
         }
