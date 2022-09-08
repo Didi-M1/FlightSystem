@@ -66,5 +66,43 @@ namespace BL
         {
             return this.getAllFlights()["Outgoing"];
         }
+
+        public Tuple<WeatherSystem, WeatherSystem> getWatherInfoForSourceAndDes(FlightInfoPartial flight)
+        {
+            AirportsInfo airports = new AirportsInfo();
+            string source = flight.Source;
+            string des = flight.Destination;
+            AirPort sourceAirport = this.GetAirportInfo(source);
+            AirPort desAirport = this.GetAirportInfo(des);
+            WeatherSystem sourceWeather = this.getWatherInfo(sourceAirport.Location.lat.ToString(), sourceAirport.Location.lon.ToString());
+            WeatherSystem desWeather = this.getWatherInfo(desAirport.Location.lat.ToString(), desAirport.Location.lon.ToString());
+
+            return new Tuple<WeatherSystem, WeatherSystem>(sourceWeather, desWeather);
+        }
+
+        public Tuple<string, string> getPathToFlagsForSourceAndDes(FlightInfoPartial flight)
+        {
+            AirportsInfo airports = new AirportsInfo();
+            string source = flight.Source;
+            string des = flight.Destination;
+            AirPort sourceAirport = this.GetAirportInfo(source);
+            AirPort desAirport = this.GetAirportInfo(des);
+            string sourceFlag = this.getPathToFlag(sourceAirport.country);
+            string desFlag = this.getPathToFlag(desAirport.country);
+
+            return new Tuple<string, string>(sourceFlag, desFlag);
+        }
+
+        public string getPathToFlag(string country)
+        {
+            FlagByCountrey flag = new FlagByCountrey();
+            return flag.getImageByName(country);
+        }
+
+        public AirPort GetAirportInfo(string airportCode)
+        {
+            AirportsInfo airports = new AirportsInfo();
+            return airports.getAirPortinfo(airportCode);
+        }
     }
 }

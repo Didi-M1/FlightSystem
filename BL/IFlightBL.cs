@@ -12,6 +12,10 @@ namespace BL
         void addFLightToSaves(FlightInfoPartial flight);
         FlightInfoPartial getFlightInfo(int flightID);
         void removeFLightFromSaves(int flight);
+        Tuple<WeatherSystem, WeatherSystem> getWatherInfoForSourceAndDes(FlightInfoPartial flight);
+        Tuple<string, string> getPathToFlagsForSourceAndDes(FlightInfoPartial flight);
+        string getPathToFlag(string country);
+        AirPort GetAirportInfo(string airportCode);
         WeatherSystem getWatherInfo(string lat, string lon);
         Dictionary<string, List<FlightInfoPartial>> getAllFlights();
         List<FlightInfoPartial> getAllIncomingFlights();

@@ -12,6 +12,8 @@ namespace PLGUI.Modles
         //list of flights
         public List<FlightInfoPartial> flights { get; set; }
         private IFlightBL Bl;
+        DateTime StartDate { get; set; }
+        DateTime finalDate { get; set; }
         public FlightModel()
         {
             Bl = new FlightBL();
@@ -29,7 +31,10 @@ namespace PLGUI.Modles
         {
             return Bl.getAllIncomingFlights();
         }
-        
+        public IEnumerable<FlightInfoPartial> getSavedFlights()
+        {
+            return null;
+        }
     }
    
 

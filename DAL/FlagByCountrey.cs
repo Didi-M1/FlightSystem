@@ -8,12 +8,18 @@ using System.IO;
 
 namespace DAL
 {
-   public class FlagByCountrey
+    public class FlagByCountrey
     {
         string url = "https://countryflagsapi.com/png/";
-        public string getImageByName(string countryName="")
+        public string getImageByName(string countryName = "")
         {
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url+countryName);
+            string path = @"../../../PLGUI/images/" + countryName + ".png";
+            //if the file is already exist
+            if (File.Exists(path))
+            {
+                return path;
+            }
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url + countryName);
             request.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate;
             try
             {
@@ -21,14 +27,13 @@ namespace DAL
                 using (Stream stream = response.GetResponseStream())
                 using (StreamReader reader = new StreamReader(stream))
                 {
-                    string path = @"../images/" + countryName + ".png";
                     reader.BaseStream.CopyTo(File.Create(path));
                     return path;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                return  null;
+                return null;
             }
         }
     }
