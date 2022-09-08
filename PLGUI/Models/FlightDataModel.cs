@@ -32,6 +32,13 @@ namespace PLGUI.Models
         {
             selectedFlightFullInfo = Bl.GetFlightFullInfo(SelectedFlight.SourceId);
         }
+        public Tuple<string,string> pathToFlags
+        {
+            get
+            {
+                return Bl.getPathToFlagsForSourceAndDes(SelectedFlight);
+            }
+        }
         
     }
 }

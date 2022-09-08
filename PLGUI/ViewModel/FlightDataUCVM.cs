@@ -22,6 +22,24 @@ namespace PLGUI.ViewModel
                 model.selectedFlight = value;                
             }
         }
+
+        public string pathToFlagSorce
+        {
+            get
+            {
+                return model.pathToFlags.Item1;
+            }
+        }
+        public string pathToFlagDestination
+        {
+            get
+            {
+                return model.pathToFlags.Item2;
+            }
+        }
+
+
+
         Models.FlightDataModel model;
         public PLGUI.Commands.ChangeSelectedFlightCommand changeCommand { get; set;}
 

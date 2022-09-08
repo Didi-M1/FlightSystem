@@ -18,6 +18,7 @@ namespace BE.Models
             Source = source;
             Destination = destination;
             FlightCode = flightCode;
+
         }
         public FlightInfoPartial()
         {
@@ -30,7 +31,6 @@ namespace BE.Models
         public double Long { get; set; }
 
         public double Lat { get; set; }
-
 
         public DateTime DateAndTime { get; set; }
 

@@ -20,10 +20,12 @@ namespace PLGUI.UserControls
     /// </summary>
     public partial class FlightDataUserControl : UserControl
     {
+        private PLGUI.ViewModel.FlightDataUCVM vm;
         public FlightDataUserControl()
         {
             InitializeComponent();
-            
+            vm = new ViewModel.FlightDataUCVM();
+            this.DataContext = vm;
 
         }
     }
