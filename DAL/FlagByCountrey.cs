@@ -21,7 +21,9 @@ namespace DAL
                 using (Stream stream = response.GetResponseStream())
                 using (StreamReader reader = new StreamReader(stream))
                 {
-                    return reader.ReadToEnd();
+                    string path = @"../images/" + countryName + ".png";
+                    reader.BaseStream.CopyTo(File.Create(path));
+                    return path;
                 }
             }
             catch(Exception ex)

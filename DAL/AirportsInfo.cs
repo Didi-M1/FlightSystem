@@ -16,8 +16,15 @@ namespace DAL
         string apiKey = "4e775779-9df6-4d2c-a119-1a73b319cae0";
         private Airport getAirPortinfoFromLocal(string iata_code)
         {
-            DBManage dB = new DBManage();
-            return dB.getAirPort(iata_code);
+            try
+            {
+                DBManage db = new DBManage();
+                return db.getAirPort(iata_code);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
         private Airport GetAirportFromWeb(string iata_code)
         {
@@ -51,7 +58,7 @@ namespace DAL
             if (result != null) return result;
             result= GetAirportFromWeb(iata_code);
             DBManage dB = new DBManage();
-            dB.AddAirPort(result);
+        //    dB.AddAirPort(result);
             return result;
         }
     }
