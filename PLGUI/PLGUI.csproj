@@ -78,6 +78,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\ChangeSelectedFlightCommand.cs" />
     <Compile Include="Commands\UpdateFlightsCommand.cs" />
     <Compile Include="Models\FlightModel.cs" />
     <Compile Include="Models\WhetherModel.cs" />

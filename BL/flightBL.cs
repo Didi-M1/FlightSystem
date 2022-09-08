@@ -104,5 +104,17 @@ namespace BL
             AirportsInfo airports = new AirportsInfo();
             return airports.getAirPortinfo(airportCode);
         }
+
+        public IEnumerable<FlightInfoPartial> GetAllSaveFlights(DateTime startDate, DateTime EndDate)
+        {
+            DBManage dBManage = new DBManage();
+            return dBManage.getAllFlights().Where(f => f.DateAndTime >= startDate && f.DateAndTime <= EndDate);
+        }
+
+        public FlightInfo GetFlightFullInfo(string sourceID)
+        {
+            TrafficAdapter trafficAdapter = new TrafficAdapter();
+            return trafficAdapter.GetFlight(sourceID);
+        }
     }
 }

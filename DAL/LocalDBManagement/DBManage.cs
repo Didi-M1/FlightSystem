@@ -43,6 +43,13 @@ namespace DAL
             }
 
         }
+        public List<FlightInfoPartial> getAllFlights()
+        {
+            using (var ctx = new FlightsShowDB())
+            {
+                return ctx.DBFligths.ToList();
+            }
+        }
         public  FlightInfoPartial GetFlight(int id)
         {
             using (var ctx = new FlightsShowDB())
