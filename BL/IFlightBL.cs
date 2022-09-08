@@ -11,6 +11,7 @@ namespace BL
     {
         void addFLightToSaves(FlightInfoPartial flight);
         FlightInfoPartial getFlightInfo(int flightID);
+        IEnumerable<FlightInfoPartial> GetAllSaveFlights(DateTime startDate, DateTime EndDate);
         void removeFLightFromSaves(int flight);
         Tuple<WeatherSystem, WeatherSystem> getWatherInfoForSourceAndDes(FlightInfoPartial flight);
         Tuple<string, string> getPathToFlagsForSourceAndDes(FlightInfoPartial flight);
@@ -21,5 +22,6 @@ namespace BL
         List<FlightInfoPartial> getAllIncomingFlights();
         List<FlightInfoPartial> getAllOutgoingFlights();
         List<HolydatesInfo> isThereAnyHolday(int numberOfDayAhed, DateTime date);
+        FlightInfo GetFlightFullInfo(string sourceID);
     }
 }
