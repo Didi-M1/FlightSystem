@@ -84,7 +84,7 @@ namespace BE.Models
 
     }
 
-    public class Airport
+    public class AirPort
     {
         public Coord Location { get; set; }
         public string country { get; set; }
@@ -100,8 +100,8 @@ namespace BE.Models
     public class Flight
     {
         public string id { get; set; }
-        public Airport source { get; set; }
-        public Airport destination { get; set; }
+        public AirPort source { get; set; }
+        public AirPort destination { get; set; }
         public double cost { get; set; }
         public TimeSpan duration { get; set; }
         public bool isBag { get; set; }

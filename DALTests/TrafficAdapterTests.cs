@@ -15,16 +15,16 @@ namespace DAL.Tests
         [TestMethod()]
         public void GetFlightTest()
         {
-            /*
+            
             TrafficAdapter ta = new TrafficAdapter();
             var flights=ta.GetCurrentFlights();          
-            ta.GetFlight(flights["Outgoing"][1].FlightCode);*/
-            AirportsInfo airports = new AirportsInfo();
+            ta.GetFlight(flights["Outgoing"][1].SourceId);
+            /*AirportsInfo airports = new AirportsInfo();
             
             var airport=airports.getAirPortinfo("TLV");
 
             DAL.FlagByCountrey fbc = new FlagByCountrey();
-            fbc.getImageByName("Andorra");
+            fbc.getImageByName("Andorra");*/
             
         }
     }
