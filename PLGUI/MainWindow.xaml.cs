@@ -38,7 +38,6 @@ namespace PLGUI
 
         private void addLinesAndFlights(FlightsUCVM flightsUCVM)
         {
-            flightsUCVM.getAllFlights();
             foreach (var item in flightsUCVM.Incomaingflights)
             {
                 Location location = new Location(item.Lat, item.Long);
@@ -87,10 +86,7 @@ namespace PLGUI
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //get the flight code from the pushpin
-            string flightCode = ((Pushpin)sender).Content.ToString();
-            MessageBox.Show(flightCode);
-
+            
         }
     }
 }

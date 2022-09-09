@@ -19,6 +19,7 @@ namespace PLGUI.ViewModel
             Model = new Modles.FlightModel();
             Incomaingflights = new ObservableCollection<FlightInfoPartial>();
             updateCommand=new Commands.UpdateFlightsCommand(this);
+            this.getAllFlights();
         }
         public void getAllFlights()
         {
