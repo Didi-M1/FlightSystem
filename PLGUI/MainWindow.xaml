@@ -21,13 +21,7 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type m:Pushpin}">
                         <Grid>
-                            <Button Content="Button" Click="Button_Click" HorizontalAlignment="Left" Height="24" Width="24" VerticalAlignment="Top">
-                                <Button.Template> 
-                                    <ControlTemplate>
-                                        <Image Source="..\images\airplane.png"/>
-                                    </ControlTemplate>
-                                </Button.Template>
-                            </Button>
+                            <Image Height="24" Width="24" Source="..\images\airplane.png"/>
                         </Grid>
                     </ControlTemplate>
                 </Setter.Value>

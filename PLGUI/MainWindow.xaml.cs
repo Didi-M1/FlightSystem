@@ -47,6 +47,7 @@ namespace PLGUI
                 pushpin.Background = Brushes.Red;
                 pushpin.Content = item.SourceId;
                 pushpin.ToolTip = item.FlightCode;
+                pushpin.MouseDoubleClick += Pushpin_MouseDoubleClick;
                 myMap.Children.Add(pushpin);
             }
             foreach (var item in flightsUCVM.Outgoingflights)
@@ -58,12 +59,12 @@ namespace PLGUI
                 pushpin.Background = Brushes.Green;
                 pushpin.Content = item.FlightCode;
                 pushpin.ToolTip = item.FlightCode;
+                pushpin.MouseDoubleClick += Pushpin_MouseDoubleClick;
                 myMap.Children.Add(pushpin);
             }
 
 
         }
-
         private void DrawLines(FlightInfoPartial item, Location location)
         {
             var airPortA = bl.GetAirportInfo(item.Source);
@@ -71,23 +72,23 @@ namespace PLGUI
             var airPortB = bl.GetAirportInfo(item.Destination);
             Location locationB = new Location(airPortB.Location.lat, airPortB.Location.lon);
             MapPolyline polyline = new MapPolyline();
-            polyline.Stroke = new SolidColorBrush(Colors.Blue);
-            polyline.StrokeThickness = 5;
+            polyline.Stroke = new SolidColorBrush(Colors.Red);
+            polyline.StrokeThickness = 1;
             polyline.Opacity = 0.7;
             polyline.Locations = new LocationCollection() { locationA, location, locationB };
             myMap.Children.Add(polyline);
+            
 
         }
 
         private void Pushpin_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Hello");
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
+            Pushpin pushpin = sender as Pushpin;
+            FlightInfoPartial flight = flightsUCVM.Incomaingflights.FirstOrDefault(x => x.SourceId == pushpin.Content.ToString());
             
         }
+
+     
     }
 }
 
