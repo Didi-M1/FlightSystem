@@ -47,7 +47,6 @@ namespace PLGUI.ViewModel
         }
 
 
-
         Models.FlightDataModel model;
         public PLGUI.Commands.ChangeSelectedFlightCommand changeCommand { get; set;}
 

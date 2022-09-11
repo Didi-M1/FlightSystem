@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PLGUI" xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        xmlns:UserControls="clr-namespace:PLGUI.UserControls" x:Class="PLGUI.MainWindow"
+        xmlns:UserControls="clr-namespace:PLGUI.UserControls" xmlns:viewmodel="clr-namespace:PLGUI.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:FlightDataUCVM}" x:Class="PLGUI.MainWindow"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
-        Background="{DynamicResource MaterialDesignPaper}"
+        Background="#FFFFFF"
         FontFamily="{DynamicResource MaterialDesignFont}"
         mc:Ignorable="d"
         Title="MainWindow" Height="1920" Width="1080">
@@ -21,7 +21,12 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type m:Pushpin}">
                         <Grid>
-                            <Image Height="24" Width="24" Source="..\images\airplane.png"/>
+                            <!--rotate the image 30 degrees Source="..\images\airplane.png"-->
+                            <Image Source="..\images\airplane.png" RenderTransformOrigin="0.5,0.5">
+                                <Image.RenderTransform>
+                                    <RotateTransform Angle="30"/>
+                                </Image.RenderTransform>
+                            </Image>
                         </Grid>
                     </ControlTemplate>
                 </Setter.Value>
@@ -30,7 +35,7 @@
     </Window.Resources>
     <Grid>
         <Grid>
-            <m:Map CredentialsProvider="Am7ABZsl1hVs093AjZV82C3wxd-NCQ-KtBLpdtv4uB1UBvqIx7vcgN7Dw1A9RpQt" x:Name="myMap"  Margin="188,62,121,89">
+            <m:Map  IsEnabled="{Binding ViewMathod}" CredentialsProvider="Am7ABZsl1hVs093AjZV82C3wxd-NCQ-KtBLpdtv4uB1UBvqIx7vcgN7Dw1A9RpQt" x:Name="myMap" DataContext="{Binding myMap, Mode=TwoWay}"  Margin="188,62,121,89" Visibility="Visible" ZoomLevel="2" Center="{Binding Center, Mode=TwoWay}">
                 <m:MapItemsControl Name="mapControl">
                     <m:MapItemsControl.ItemTemplate>
                         <DataTemplate>
@@ -43,6 +48,9 @@
                     </m:MapItemsControl.ItemTemplate>
                 </m:MapItemsControl>
             </m:Map>
+            <Button Content="Dates" x:Name="DatesBtn" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top" Height="129" Width="173" Background="#FF3C3C3C" BorderBrush="White" Foreground="White"/>
+            <Button x:Name="switchBtn" Content="Switch to list view" Command="{Binding ClickCommandSwitch}" HorizontalAlignment="Left" Margin="10,181,0,0" VerticalAlignment="Top" Height="129" Width="173" Background="#FF3C3C3C" BorderBrush="White" Foreground="White"/>
+            
         </Grid>
     </Grid>
 </Window>

@@ -34,6 +34,7 @@ namespace PLGUI
             flightsUCVM = new ViewModel.FlightsUCVM();
             bl = new FlightBL();
             addLinesAndFlights(flightsUCVM);
+            DataContext = flightsUCVM;
         }
 
         private void addLinesAndFlights(FlightsUCVM flightsUCVM)
@@ -47,7 +48,7 @@ namespace PLGUI
                 pushpin.Background = Brushes.Red;
                 pushpin.Content = item.SourceId;
                 pushpin.ToolTip = item.FlightCode;
-                pushpin.MouseDoubleClick += Pushpin_MouseDoubleClick;
+                pushpin.MouseDoubleClick += flightsUCVM.Pushpin_MouseDoubleClick;
                 myMap.Children.Add(pushpin);
             }
             foreach (var item in flightsUCVM.Outgoingflights)
@@ -59,7 +60,7 @@ namespace PLGUI
                 pushpin.Background = Brushes.Green;
                 pushpin.Content = item.FlightCode;
                 pushpin.ToolTip = item.FlightCode;
-                pushpin.MouseDoubleClick += Pushpin_MouseDoubleClick;
+                pushpin.MouseDoubleClick += flightsUCVM.Pushpin_MouseDoubleClick;
                 myMap.Children.Add(pushpin);
             }
 
@@ -77,16 +78,9 @@ namespace PLGUI
             polyline.Opacity = 0.7;
             polyline.Locations = new LocationCollection() { locationA, location, locationB };
             myMap.Children.Add(polyline);
-            
-
         }
 
-        private void Pushpin_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            Pushpin pushpin = sender as Pushpin;
-            FlightInfoPartial flight = flightsUCVM.Incomaingflights.FirstOrDefault(x => x.SourceId == pushpin.Content.ToString());
-            
-        }
+ 
 
      
     }
