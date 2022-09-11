@@ -24,7 +24,6 @@ namespace PLGUI
     /// </summary>
     public partial class MainWindow : Window
     {
-        BL.IFlightBL bl;
         PLGUI.ViewModel.FlightsUCVM flightsUCVM;
         public MainWindow()
         {
@@ -32,42 +31,14 @@ namespace PLGUI
             InitializeComponent();
 
             flightsUCVM = new ViewModel.FlightsUCVM();
-            bl = new FlightBL();
-            addLinesAndFlights(flightsUCVM);
-            DataContext = flightsUCVM;
+            flightsUCVM.updateCommand.Execute(null);
+            this.DataContext = flightsUCVM;
         }
 
-        private void addLinesAndFlights(FlightsUCVM flightsUCVM)
-        {
-            foreach (var item in flightsUCVM.Incomaingflights)
-            {
-                Location location = new Location(item.Lat, item.Long);
-                DrawLines(item, location);
-                Pushpin pushpin = new Pushpin();
-                pushpin.Location = location;
-                pushpin.Background = Brushes.Red;
-                pushpin.Content = item.SourceId;
-                pushpin.ToolTip = item.FlightCode;
-                pushpin.MouseDoubleClick += flightsUCVM.Pushpin_MouseDoubleClick;
-                myMap.Children.Add(pushpin);
-            }
-            foreach (var item in flightsUCVM.Outgoingflights)
-            {
-                Location location = new Location(item.Lat, item.Long);
-                DrawLines(item, location);
-                Pushpin pushpin = new Pushpin();
-                pushpin.Location = location;
-                pushpin.Background = Brushes.Green;
-                pushpin.Content = item.FlightCode;
-                pushpin.ToolTip = item.FlightCode;
-                pushpin.MouseDoubleClick += flightsUCVM.Pushpin_MouseDoubleClick;
-                myMap.Children.Add(pushpin);
-            }
 
-
-        }
         private void DrawLines(FlightInfoPartial item, Location location)
         {
+            /*
             var airPortA = bl.GetAirportInfo(item.Source);
             Location locationA = new Location(airPortA.Location.lat, airPortA.Location.lon);
             var airPortB = bl.GetAirportInfo(item.Destination);
@@ -78,13 +49,9 @@ namespace PLGUI
             polyline.Opacity = 0.7;
             polyline.Locations = new LocationCollection() { locationA, location, locationB };
             myMap.Children.Add(polyline);
+            */
         }
-
- 
-
-     
     }
 }
-
 
 
