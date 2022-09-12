@@ -24,32 +24,12 @@ namespace PLGUI
     /// </summary>
     public partial class MainWindow : Window
     {
-        PLGUI.ViewModel.FlightsUCVM flightsUCVM;
+        PLGUI.ViewModel.MainViewModel VM;
         public MainWindow()
         {
-
             InitializeComponent();
-
-            flightsUCVM = new ViewModel.FlightsUCVM();
-            flightsUCVM.updateCommand.Execute(null);
-            this.DataContext = flightsUCVM;
-        }
-
-
-        private void DrawLines(FlightInfoPartial item, Location location)
-        {
-            /*
-            var airPortA = bl.GetAirportInfo(item.Source);
-            Location locationA = new Location(airPortA.Location.lat, airPortA.Location.lon);
-            var airPortB = bl.GetAirportInfo(item.Destination);
-            Location locationB = new Location(airPortB.Location.lat, airPortB.Location.lon);
-            MapPolyline polyline = new MapPolyline();
-            polyline.Stroke = new SolidColorBrush(Colors.Red);
-            polyline.StrokeThickness = 1;
-            polyline.Opacity = 0.7;
-            polyline.Locations = new LocationCollection() { locationA, location, locationB };
-            myMap.Children.Add(polyline);
-            */
+            VM = new MainViewModel();
+            this.DataContext = VM;
         }
     }
 }

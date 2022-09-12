@@ -17,16 +17,16 @@ using System.Windows.Shapes;
 namespace PLGUI.UserControls
 {
     /// <summary>
-    /// Interaction logic for FlightTableUserControl.xaml
+    /// Interaction logic for DatesSelection.xaml
     /// </summary>
-    public partial class FlightTableUserControl : UserControl
+    public partial class DatesSelection : UserControl
     {
-        TablesViewModle VM;
-        public FlightTableUserControl()
+        DatesUCVM vm;
+        public DatesSelection()
         {
             InitializeComponent();
-            VM = new TablesViewModle();
-            this.DataContext = VM;
+            vm = new DatesUCVM();
+            this.DataContext = vm;
         }
     }
 }

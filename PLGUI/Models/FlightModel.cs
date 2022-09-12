@@ -33,7 +33,7 @@ namespace PLGUI.Modles
         }
         public IEnumerable<FlightInfoPartial> getSavedFlights()
         {
-            return null;
+            return Bl.GetAllSaveFlights();
         }
     }
    

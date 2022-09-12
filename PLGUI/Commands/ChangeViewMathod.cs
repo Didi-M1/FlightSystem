@@ -10,11 +10,17 @@ namespace PLGUI.Commands
     class ChangeViewMathod : ICommand
     {
         public event EventHandler CanExecuteChanged;
-        PLGUI.ViewModel.FlightsUCVM VM;
+        PLGUI.ViewModel.MainViewModel VM;
 
-        public ChangeViewMathod(ViewModel.FlightsUCVM vm)
+        ViewModel.TablesViewModle tableVM = new ViewModel.TablesViewModle();
+        ViewModel.MapUCVM mapVM = new ViewModel.MapUCVM();
+        ViewModel.DatesUCVM datesVM = new ViewModel.DatesUCVM();
+
+
+        public ChangeViewMathod(ViewModel.MainViewModel vm)
         {
             VM = vm;
+            VM.CurrentUC = mapVM;
         }
 
         public bool CanExecute(object parameter)
@@ -24,8 +30,20 @@ namespace PLGUI.Commands
 
         public void Execute(object parameter)
         {
-            if (!CanExecute(parameter)) return;
-            VM.ViewMathod = !VM.ViewMathod;
+            switch (parameter.ToString())
+            {
+                case "Map":
+                    VM.CurrentUC = mapVM;
+                    break;
+                case "List":
+                    VM.CurrentUC = tableVM;
+                    break;
+                case "Dates":
+                    VM.CurrentUC = datesVM;
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

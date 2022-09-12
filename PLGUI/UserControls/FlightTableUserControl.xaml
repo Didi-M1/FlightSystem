@@ -9,18 +9,32 @@
     <Grid>
         <!--data grid with id, sourceId, long, lat,  dateAndTime,  source, destination, flightCode rows-->
         <!--the rows will fill the grid-->
-        <DataGrid x:Name="dataGrid" Width="800" AutoGenerateColumns="False" ItemsSource="{Binding Path=Flights}" >
+        <DataGrid x:Name="dataGrid" Width="800" AutoGenerateColumns="False" ItemsSource="{Binding Incomaingflights}" Margin="0,41,0,233" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="             Id" Binding="{Binding Path=Id}" Width="100" />
                 <DataGridTextColumn Header="       SourceId" Binding="{Binding Path=SourceId}" Width="100" />
-                <DataGridTextColumn Header="      Longitude" Binding="{Binding Path=Longitude}" Width="100" />
-                <DataGridTextColumn Header="       Latitude" Binding="{Binding Path=Latitude}" Width="100"/>
+                <DataGridTextColumn Header="      Longitude" Binding="{Binding Path=Long}" Width="100" />
+                <DataGridTextColumn Header="       Latitude" Binding="{Binding Path=Lat}" Width="100"/>
                 <DataGridTextColumn Header=" DateAndTime" Binding="{Binding Path=DateAndTime}" Width="100"/>
                 <DataGridTextColumn Header="       Source" Binding="{Binding Path=Source}" Width="100"/>
                 <DataGridTextColumn Header="     Destination" Binding="{Binding Path=Destination}" Width="100" />
                 <DataGridTextColumn Header="    FlightCode" Binding="{Binding Path=FlightCode}" Width="100" />
             </DataGrid.Columns>
         </DataGrid>
+        <DataGrid x:Name="dataGrid_Copy" Width="800" AutoGenerateColumns="False" ItemsSource="{Binding Outgoingflights}" Margin="0,266,0,-7" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="             Id" Binding="{Binding Id}" Width="100" />
+                <DataGridTextColumn Header="       SourceId" Binding="{Binding SourceId}" Width="100" />
+                <DataGridTextColumn Header="      Longitude" Binding="{Binding Long}" Width="100" />
+                <DataGridTextColumn Header="       Latitude" Binding="{Binding Lat}" Width="100"/>
+                <DataGridTextColumn Header=" DateAndTime" Binding="{Binding DateAndTime}" Width="100"/>
+                <DataGridTextColumn Header="       Source" Binding="{Binding Source}" Width="100"/>
+                <DataGridTextColumn Header="     Destination" Binding="{Binding Destination}" Width="100" />
+                <DataGridTextColumn Header="    FlightCode" Binding="{Binding FlightCode}" Width="100" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="Incoming" HorizontalAlignment="Center" Margin="0,7,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18"/>
+        <Label Content="OutComing" HorizontalAlignment="Center" Margin="0,217,0,0" VerticalAlignment="Top" FontSize="18" Foreground="Black" Background="White"/>
 
     </Grid>
 </UserControl>

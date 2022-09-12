@@ -106,10 +106,10 @@ namespace BL
             return airports.getAirPortinfo(airportCode);
         }
 
-        public IEnumerable<FlightInfoPartial> GetAllSaveFlights(DateTime startDate, DateTime EndDate)
+        public IEnumerable<FlightInfoPartial> GetAllSaveFlights()
         {
             DBManage dBManage = new DBManage();
-            return dBManage.getAllFlights().Where(f => f.DateAndTime >= startDate && f.DateAndTime <= EndDate);
+            return dBManage.getAllFlights();
         }
 
         public FlightInfo GetFlightFullInfo(string sourceID)

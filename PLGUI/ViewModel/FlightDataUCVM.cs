@@ -4,22 +4,47 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using BE.Models; 
 namespace PLGUI.ViewModel
 {
-    class FlightDataUCVM : INotifyPropertyChanged
+    public class FlightDataUCVM : BaseViewModel
     {
+        
+        private static FlightDataUCVM instance = null;
+        public static FlightDataUCVM Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new FlightDataUCVM();
+                }
+                return instance;
+            }
+        }
+        private FlightDataUCVM()
+        {
+            model = new Models.FlightDataModel();
+            ChangeCommand = new Commands.ChangeSelectedFlightCommand();
+        }
+
+
+        private FlightInfoPartial _selectedFlight;
         public FlightInfoPartial selectedFlight
         {
             get
             {
-                return model.selectedFlight;
+                return _selectedFlight;
             }
                 set
             {
+                if (value == null)
+                    return;
                 OnPropertyChanged("selectedFlight");
                 value.DateAndTime = DateTime.Now;
-                model.selectedFlight = value;                
+                _selectedFlight = value;
+                model.selectedFlight = value;
             }
         }
 
@@ -27,42 +52,31 @@ namespace PLGUI.ViewModel
         {
             get
             {
-                if (selectedFlight == null)
-                {
-                    return @"../Images/un.png";
-                }
-                return model.pathToFlags.Item1;
+                string path = @"../Images/un.png";
+                if (selectedFlight != null)
+                    path = model.pathToFlags.Item1;
+                path = path.Substring(3);
+                return path;
             }
         }
         public string pathToFlagDestination
         {
             get
             {
-                if (selectedFlight == null)
-                {
-                    return @"../Images/un.png";
-                }
-                return model.pathToFlags.Item2;
+                string path = @"../Images/un.png";
+                if (selectedFlight != null)
+                    path = model.pathToFlags.Item2;
+                path = path.Substring(3);
+                return path;
             }
         }
 
 
         Models.FlightDataModel model;
-        public PLGUI.Commands.ChangeSelectedFlightCommand changeCommand { get; set;}
+        public ICommand ChangeCommand { get; set;}
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        public FlightDataUCVM()
-        {
-            model = new Models.FlightDataModel();
-            changeCommand = new Commands.ChangeSelectedFlightCommand(this);
-        }
-        private void OnPropertyChanged(string name = null)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-            }
-        }
+
+
        
     }
 }

@@ -15,22 +15,10 @@ namespace PLGUI.ViewModel
         private PLGUI.Modles.FlightModel Model;
         public ObservableCollection<FlightInfoPartial> Incomaingflights { get; set; }
         public ObservableCollection<FlightInfoPartial> Outgoingflights { get; set; }
-        public Map myMap { get; set; }
         public PLGUI.Commands.UpdateFlightsCommand updateCommand;
         public PLGUI.Commands.ChangeViewMathod ClickCommandSwitch { get; set; }
 
-
-        public bool ViewMathod
-        {
-            get { return viewMathod; }
-            set
-            {
-                viewMathod = value;
-            }
-        }
-        private bool viewMathod = true;
-
-
+        
 
 
         public FlightsUCVM()
@@ -38,9 +26,7 @@ namespace PLGUI.ViewModel
             Model = new Modles.FlightModel();
             Incomaingflights = new ObservableCollection<FlightInfoPartial>();
             Outgoingflights = new ObservableCollection<FlightInfoPartial>();
-            myMap = new Map();
             updateCommand = new Commands.UpdateFlightsCommand(this);
-            ClickCommandSwitch = new Commands.ChangeViewMathod(this);
             this.getAllFlights();
             
         }
@@ -60,23 +46,7 @@ namespace PLGUI.ViewModel
             }
 
         }
-        public void Pushpin_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            Pushpin pushpin = sender as Pushpin;
-            FlightInfoPartial flight = Incomaingflights.FirstOrDefault(x => x.SourceId == pushpin.Content.ToString());
-            clearMap();
-            
-        }
-        public void clearMap()
-        {
-            myMap.Children.Clear();
-        }
 
-        //switch from map to data grid using flightTableUserControl 
-        public void SwitchView()
-        {
-            
-        }
 
 
     }

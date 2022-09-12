@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:PLGUI.UserControls"
+             xmlns:local="clr-namespace:PLGUI.UserControls" xmlns:viewmodel="clr-namespace:PLGUI.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:FlightDataUCVM}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
@@ -19,8 +19,8 @@
                     </VisualBrush.Visual>
                 </VisualBrush>
             </Canvas.Background>
-            <Image x:Name="image1" Width="225" Height="179" Canvas.Left="7" Canvas.Top="261" Source="{Binding pathToFlagSorce}"/>
-            <Image x:Name="image2" Width="217" Height="216" Canvas.Left="578" Canvas.Top="242" Source="{Binding pathToFlagDestination}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <Image x:Name="image1" Width="225" Height="179" Canvas.Left="7" Canvas.Top="261" Source="{Binding pathToFlagSorce}" Stretch="Fill"/>
+            <Image x:Name="image2" Width="247" Height="173" Canvas.Left="541" Canvas.Top="265" Source="{Binding pathToFlagDestination}" Stretch="Fill"/>
 
             <Label Name="FlightNumberLable" Content="Flight number:" Canvas.Left="82" Canvas.Top="41"/>
             <!-- Flight source, destination, time, date, passengers, company, model -->
@@ -32,7 +32,7 @@
             <Label Name="FlightLongitudeLable" Content="Longitude:" Canvas.Left="82" Canvas.Top="221"/>
 
             <!-- another lable for any lable before for the value -->
-            <Label Name="FlightNumberValueLable" Content="{Binding selectedFlight.Id}" Canvas.Left="194" Canvas.Top="41" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <Label Name="FlightNumberValueLable" Content="{Binding selectedFlight.Id}" Canvas.Left="194" Canvas.Top="41" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40" Width="81"/>
             <!-- Flight source, destination, time, date, passengers, company, model -->
             <Label Name="FlightSourceValueLable" Content="{Binding selectedFlight.SourceId}" Canvas.Left="194" Canvas.Top="71" HorizontalAlignment="Left" VerticalAlignment="Center"/>
             <Label Name="FlightDestinationValueLable" Content="{Binding selectedFlight.Destination}" Canvas.Left="194" Canvas.Top="101" HorizontalAlignment="Left" VerticalAlignment="Center"/>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BE.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,12 +22,13 @@ namespace PLGUI.UserControls
     public partial class FlightDataUserControl : UserControl
     {
         private PLGUI.ViewModel.FlightDataUCVM vm;
+        
         public FlightDataUserControl()
         {
             InitializeComponent();
-            vm = new ViewModel.FlightDataUCVM();
+            vm = PLGUI.ViewModel.FlightDataUCVM.Instance;
             this.DataContext = vm;
-
         }
+        
     }
 }

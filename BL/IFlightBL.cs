@@ -11,7 +11,7 @@ namespace BL
     {
         void addFLightToSaves(FlightInfoPartial flight);
         FlightInfoPartial getFlightInfo(int flightID);
-        IEnumerable<FlightInfoPartial> GetAllSaveFlights(DateTime startDate, DateTime EndDate);
+        IEnumerable<FlightInfoPartial> GetAllSaveFlights();
         void removeFLightFromSaves(int flight);
         Tuple<WeatherSystem, WeatherSystem> getWatherInfoForSourceAndDes(FlightInfoPartial flight);
         Tuple<string, string> getPathToFlagsForSourceAndDes(FlightInfoPartial flight);

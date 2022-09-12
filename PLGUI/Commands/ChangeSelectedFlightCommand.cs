@@ -12,23 +12,35 @@ namespace PLGUI.Commands
     {
         public event EventHandler CanExecuteChanged;
 
-        ViewModel.FlightDataUCVM VM;
+        static ViewModel.MainViewModel VM;
+        ViewModel.FlightDataUCVM flightData;
 
-        public ChangeSelectedFlightCommand(ViewModel.FlightDataUCVM vm)
+        public ChangeSelectedFlightCommand(ViewModel.MainViewModel vm)
         {
             VM = vm;
         }
+        public ChangeSelectedFlightCommand()
+        {
+            ;
+        }
+
 
         public bool CanExecute(object parameter)
         {
-            return true;
+            return parameter == null ? false : true;
         }
 
         public void Execute(object parameter)
         {
             if (!CanExecute(parameter)) return;
-            var flight=parameter as FlightInfoPartial;
-            VM.selectedFlight = flight;
+            if (flightData == null)
+                flightData = ViewModel.FlightDataUCVM.Instance;
+            if (parameter is FlightInfoPartial)
+            {
+                var flight = parameter as FlightInfoPartial;
+                flightData.selectedFlight = flight;
+                VM.choosenFlightUC = flightData;
+            }
         }
     }
 }
