@@ -19,5 +19,9 @@
         <DataTemplate DataType="{x:Type viewsModle:FlightDataUCVM}">
             <views:FlightDataUserControl/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewsModle:WeatherUCVM}">
+            <views:WeatherUserControl/>
+        </DataTemplate>
     </Application.Resources>
+    
 </Application>

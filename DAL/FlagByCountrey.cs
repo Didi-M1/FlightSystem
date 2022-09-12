@@ -13,7 +13,7 @@ namespace DAL
         string url = "https://countryflagsapi.com/png/";
         public string getImageByName(string countryName = "")
         {
-            string path = @"../../images/" + countryName + ".png";
+            string path = @"..\..\images\" + countryName + ".png";
             //if the file is already exist
             if (File.Exists(path))
             {

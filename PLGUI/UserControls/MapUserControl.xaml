@@ -8,7 +8,7 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <m:Map CredentialsProvider="Am7ABZsl1hVs093AjZV82C3wxd-NCQ-KtBLpdtv4uB1UBvqIx7vcgN7Dw1A9RpQt" x:Name="myMap" Margin="188,62,121,89" ZoomLevel="2" Center="{Binding Center, Mode=TwoWay}">
-            <m:MapItemsControl Name="mapControl">
+            <m:MapItemsControl Name="mapControl" Margin="-187,-59,-119,-87">
                 <m:MapItemsControl.ItemTemplate>
                     <DataTemplate>
                         <m:Pushpin Name="flightPushPin" >

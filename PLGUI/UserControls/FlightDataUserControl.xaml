@@ -19,10 +19,10 @@
                     </VisualBrush.Visual>
                 </VisualBrush>
             </Canvas.Background>
-            <Image x:Name="image1" Width="225" Height="179" Canvas.Left="7" Canvas.Top="261" Source="{Binding pathToFlagSorce}" Stretch="Fill"/>
-            <Image x:Name="image2" Width="247" Height="173" Canvas.Left="541" Canvas.Top="265" Source="{Binding pathToFlagDestination}" Stretch="Fill"/>
+            <Image x:Name="image1" Width="225" Height="180" Canvas.Left="191" Canvas.Top="54" Source="{Binding pathToFlagSorce}" Stretch="Fill"/>
+            <Image x:Name="image2" Width="247" Height="174" Canvas.Left="556" Canvas.Top="44" Source="{Binding pathToFlagDestination}" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
-            <Label Name="FlightNumberLable" Content="Flight number:" Canvas.Left="82" Canvas.Top="41"/>
+            <Label Name="FlightNumberLable" Content="Flight number:" Canvas.Left="82" Canvas.Top="43" HorizontalAlignment="Center" VerticalAlignment="Top"/>
             <!-- Flight source, destination, time, date, passengers, company, model -->
             <Label Name="FlightSourceLable" Content="Source:" Canvas.Left="82" Canvas.Top="71"/>
             <Label Name="FlightDestinationLable" Content="Destination:" Canvas.Left="82" Canvas.Top="101"/>
@@ -40,7 +40,7 @@
             <!-- lat and long -->
             <Label Name="FlightLatitudeValueLable" Content="{Binding selectedFlight.Lat}" Canvas.Left="194" Canvas.Top="191" HorizontalAlignment="Left" VerticalAlignment="Center"/>
             <Label Name="FlightLongitudeValueLable" Content="{Binding selectedFlight.Long}" Canvas.Left="194" Canvas.Top="221" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-            <Image Height="100" Width="107" Canvas.Left="319" Canvas.Top="300" Source="../images/arrowSymble.png" HorizontalAlignment="Left" VerticalAlignment="Center" RenderTransformOrigin="-0.136,0.477"/>
+            <Image Height="100" Width="107" Canvas.Left="456" Canvas.Top="76" Source="../images/arrowSymble.png" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-0.136,0.477"/>
 
 
 

@@ -15,7 +15,7 @@
         Background="#111111"
         FontFamily="{DynamicResource MaterialDesignFont}"
         mc:Ignorable="d"
-        Title="Flight system" Height="1920" Width="1080">
+        Title="Flight system" Height="928" Width="1920">
     <Window.Resources>
         <Style TargetType="{x:Type m:Pushpin}">
             <Setter Property="Template">
@@ -38,12 +38,13 @@
 
 
 
-    <Grid>
-        <ContentControl Content="{Binding CurrentUC}" Margin="0,103,0,379" />
+    <Grid Margin="0,0,0,-6">
+        <ContentControl Content="{Binding CurrentUC}" Margin="405,10,10,376" />
         <Button x:Name="switchBtn" Content="list view" Command="{Binding ChangeViewMathod}" CommandParameter="List" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="88" Width="173" Background="#FF3C3C3C" BorderBrush="White" Foreground="White" FontSize="22" FontWeight="Bold"/>
-        <Button x:Name="switchBtn_Copy" Content="map view" Command="{Binding ChangeViewMathod}" CommandParameter="Map"  HorizontalAlignment="Left" Margin="896,5,0,0" VerticalAlignment="Top" Height="88" Width="174" Background="#FF3C3C3C" BorderBrush="White" Foreground="White" FontSize="22" FontWeight="Bold"/>
-        <Button x:Name="switchBtn_Copy1" Content="dates" Command="{Binding ChangeViewMathod}" CommandParameter="Dates"  HorizontalAlignment="Center" Margin="0,5,0,0" VerticalAlignment="Top" Height="88" Width="174" Background="#FF3C3C3C" BorderBrush="White" Foreground="White" FontSize="22" FontWeight="Bold"/>
-        <ContentControl Content="{Binding choosenFlightUC}" Margin="-10,472,10,10" />
+        <Button x:Name="switchBtn_Copy" Content="map view" Command="{Binding ChangeViewMathod}" CommandParameter="Map"  HorizontalAlignment="Left" Margin="10,281,0,0" VerticalAlignment="Top" Height="88" Width="174" Background="#FF3C3C3C" BorderBrush="White" Foreground="White" FontSize="22" FontWeight="Bold"/>
+        <Button x:Name="switchBtn_Copy1" Content="dates" Command="{Binding ChangeViewMathod}" CommandParameter="Dates"  HorizontalAlignment="Left" Margin="10,141,0,0" VerticalAlignment="Top" Height="88" Width="174" Background="#FF3C3C3C" BorderBrush="White" Foreground="White" FontSize="22" FontWeight="Bold" RenderTransformOrigin="0.517,0.035"/>
+        <ContentControl Content="{Binding choosenFlightUC}" Margin="410,542,5,10" />
+        <ContentControl Content="{Binding WeatherUC}" Margin="10,436,1515,10" />
 
 
     </Grid>

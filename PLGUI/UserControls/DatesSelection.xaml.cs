@@ -27,6 +27,7 @@ namespace PLGUI.UserControls
             InitializeComponent();
             vm = new DatesUCVM();
             this.DataContext = vm;
+            this.dataGrid.ItemsSource = vm.Flights;
         }
     }
 }

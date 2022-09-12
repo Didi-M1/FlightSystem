@@ -20,9 +20,12 @@ namespace PLGUI.UserControls
     /// </summary>
     public partial class WeatherUserControl : UserControl
     {
+        ViewModel.WeatherUCVM vm;
         public WeatherUserControl()
         {
             InitializeComponent();
+            vm = new ViewModel.WeatherUCVM();
+            this.DataContext = vm;
         }
     }
 }

@@ -7,12 +7,12 @@ using BE.Models;
 using BL;
 namespace PLGUI.Modles
 {
-    internal class WhetherModel
+    public class WhetherModel
     {
         //list of whethers
         public List<WeatherSystem> WeatherModle { get; set; }
         private IFlightBL Bl;
-        WhetherModel()
+        public WhetherModel()
         {
             Bl = new FlightBL();
         }

@@ -80,6 +80,7 @@
     </ApplicationDefinition>
     <Compile Include="Commands\ChangeSelectedFlightCommand.cs" />
     <Compile Include="Commands\ChangeViewMathod.cs" />
+    <Compile Include="Commands\ChangeWeatherCommand.cs" />
     <Compile Include="Commands\SerachFlights.cs" />
     <Compile Include="Commands\UpdateFlightsCommand.cs" />
     <Compile Include="Models\AirportModel.cs" />
@@ -114,6 +115,7 @@
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\MapUCVM.cs" />
     <Compile Include="ViewModel\TablesViewModle.cs" />
+    <Compile Include="ViewModel\WeatherUCVM.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -212,6 +214,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\index.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\weather-background.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.5.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.5.0\build\MaterialDesignThemes.targets')" />

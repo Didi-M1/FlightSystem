@@ -27,7 +27,8 @@ namespace PLGUI.Commands
         public void Execute(object parameter)
         {
             if (!CanExecute(parameter)) return;
-            VM.Flights = new System.Collections.ObjectModel.ObservableCollection<BE.Models.FlightInfoPartial>(model.getSavedFlights());
+            var flights = new System.Collections.ObjectModel.ObservableCollection<BE.Models.FlightInfoPartial>(model.getSavedFlights());
+            VM.Flights = flights;
         }
     }
 }

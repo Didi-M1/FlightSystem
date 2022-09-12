@@ -4,17 +4,29 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PLGUI.UserControls"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" Width="683">
-    <Grid Margin="10,0,104,0">
+             mc:Ignorable="d" Width="400" Height="498">
+    <Grid Margin="10,0,10,105">
         <!-- canvas with background image name images.jpg -->
-        <Canvas Background="White" Width="670" Height="450">
-            <Image Source="..\images\images.jpg" Width="673" Height="450" HorizontalAlignment="Left" Canvas.Left="10" VerticalAlignment="Center" />
-            <Label Content="{Binding place}" FontSize="20" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"  />
-            <Label Content="{Binding temp}" FontSize="20" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" />
-            <Label Content="{Binding description}" FontSize="20" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" />
+        <Canvas Background="White" HorizontalAlignment="Center" Width="380" Margin="0,0,0,108">
+            <Image Source="..\images\weather-background.jpg" Width="380" Height="494" HorizontalAlignment="Center" VerticalAlignment="Top" />
+            <!--  <Label Content="{Binding WeatherSystem.name}" FontSize="20" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"  />
+            <Label Content="{Binding WeatherSystem.main.temp}" FontSize="20" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" />
+            <Label Content="{Binding WeatherSystem.description}" FontSize="20" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" />
             <Label Content="{Binding wind}" FontSize="20" HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top" />
             <Label Content="{Binding humidity}" FontSize="20" HorizontalAlignment="Left" Margin="10,170,0,0" VerticalAlignment="Top" />
+            -->
+            <!-- lables with contect temp and wind speed -->
+            <Label Content="Temperature" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="113" Canvas.Top="142" FontWeight="Bold" />
+            <Label Content="Wind Speed" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Left="48" Canvas.Top="238" />
+            <Label Content="Humidity" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Left="51" Canvas.Top="326" RenderTransformOrigin="-0.154,3.811" />
+            <Label Content="Pressure" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="48" Canvas.Top="370" RenderTransformOrigin="0.504,-0.15" />
+            <Label Content="Clouds" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="48" Canvas.Top="284" />
+            <Label Content="Place" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="154" Canvas.Top="44" FontWeight="Bold" />
+            <Label Content="{Binding wind}" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Left="244" Canvas.Top="247" RenderTransformOrigin="0.635,0.833" />
+            <Label Content="{Binding clouds}" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="244" Canvas.Top="284" />
+            <Label Content="{Binding humidity}" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="244" Canvas.Top="326" />
+            <Label Content="{Binding Pressure}" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="244" Canvas.Top="370" />
+
         </Canvas>
     </Grid>
 </UserControl>

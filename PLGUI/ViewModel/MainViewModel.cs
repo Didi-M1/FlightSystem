@@ -33,6 +33,17 @@ namespace PLGUI.ViewModel
             }
         }
 
+        private BaseViewModel weatherUC;
+        public BaseViewModel WeatherUC
+        {
+            get { return weatherUC; }
+            set
+            {
+                weatherUC = value;
+                OnPropertyChanged("WeatherUC");
+            }
+        }
+
 
         public MainViewModel()
         {

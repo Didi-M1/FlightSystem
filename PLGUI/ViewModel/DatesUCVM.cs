@@ -11,7 +11,16 @@ namespace PLGUI.ViewModel
 {
     public class DatesUCVM : BaseViewModel
     {
-        public ObservableCollection<FlightInfoPartial> Flights { get; set; }
+        private ObservableCollection<FlightInfoPartial> flights { get; set; }
+        public ObservableCollection<FlightInfoPartial> Flights
+        {
+            get { return flights; }
+            set
+            {
+                flights = value;
+                OnPropertyChanged("Flights");
+            }
+        }
 
         private DateTime _startDate;
         public DateTime StartDate
