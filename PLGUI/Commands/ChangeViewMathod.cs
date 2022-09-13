@@ -1,21 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace PLGUI.Commands
 {
-    class ChangeViewMathod : ICommand
+    internal class ChangeViewMathod : ICommand
     {
         public event EventHandler CanExecuteChanged;
-        PLGUI.ViewModel.MainViewModel VM;
 
-        ViewModel.TablesViewModle tableVM = new ViewModel.TablesViewModle();
-        ViewModel.MapUCVM mapVM = new ViewModel.MapUCVM();
-        ViewModel.DatesUCVM datesVM = new ViewModel.DatesUCVM();
+        private PLGUI.ViewModel.MainViewModel VM;
 
+        private ViewModel.TablesViewModle tableVM = new ViewModel.TablesViewModle();
+        private ViewModel.MapUCVM mapVM = new ViewModel.MapUCVM();
+        private ViewModel.DatesUCVM datesVM = new ViewModel.DatesUCVM();
 
         public ChangeViewMathod(ViewModel.MainViewModel vm)
         {
@@ -35,12 +31,15 @@ namespace PLGUI.Commands
                 case "Map":
                     VM.CurrentUC = mapVM;
                     break;
+
                 case "List":
                     VM.CurrentUC = tableVM;
                     break;
+
                 case "Dates":
                     VM.CurrentUC = datesVM;
                     break;
+
                 default:
                     break;
             }

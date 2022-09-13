@@ -1,17 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BE.Models;
+using System;
+using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
-using BE.Models; 
+
 namespace PLGUI.ViewModel
 {
     public class FlightDataUCVM : BaseViewModel
     {
-        
         private static FlightDataUCVM instance = null;
+
         public static FlightDataUCVM Instance
         {
             get
@@ -23,28 +21,31 @@ namespace PLGUI.ViewModel
                 return instance;
             }
         }
+
         private FlightDataUCVM()
         {
             model = new Models.FlightDataModel();
             ChangeCommand = new Commands.ChangeSelectedFlightCommand();
+            getWeather = new Commands.ChangeWeatherCommand();
         }
 
-
         private FlightInfoPartial _selectedFlight;
+
         public FlightInfoPartial selectedFlight
         {
             get
             {
                 return _selectedFlight;
             }
-                set
+            set
             {
                 if (value == null)
                     return;
-                OnPropertyChanged("selectedFlight");
-                value.DateAndTime = DateTime.Now;
                 _selectedFlight = value;
                 model.selectedFlight = value;
+                OnPropertyChanged("selectedFlight");
+                OnPropertyChanged("pathToFlagSorce");
+                OnPropertyChanged("pathToFlagDestination");
             }
         }
 
@@ -55,10 +56,10 @@ namespace PLGUI.ViewModel
                 string path = @"../Images/un.png";
                 if (selectedFlight != null)
                     path = model.pathToFlags.Item1;
-                path = path.Substring(3);
                 return path;
             }
         }
+
         public string pathToFlagDestination
         {
             get
@@ -66,17 +67,23 @@ namespace PLGUI.ViewModel
                 string path = @"../Images/un.png";
                 if (selectedFlight != null)
                     path = model.pathToFlags.Item2;
-                path = path.Substring(3);
                 return path;
             }
         }
 
+        private Models.FlightDataModel model;
+        public ICommand ChangeCommand { get; set; }
+        public ICommand getWeather { get; set; }
 
-        Models.FlightDataModel model;
-        public ICommand ChangeCommand { get; set;}
-
-
-
-       
+        public void switchBtn_Click(object sender, RoutedEventArgs e)
+        {
+            string content = (sender as Button).Content.ToString();
+            Tuple<string, FlightInfoPartial> weather = null;
+            if (content == "weather source")
+                weather = new Tuple<string, FlightInfoPartial>("source", selectedFlight);
+            else
+                weather = new Tuple<string, FlightInfoPartial>("destination", selectedFlight);
+            getWeather.Execute(weather);
+        }
     }
 }

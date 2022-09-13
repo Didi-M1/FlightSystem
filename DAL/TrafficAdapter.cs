@@ -5,10 +5,6 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL
 {
@@ -25,7 +21,6 @@ namespace DAL
 
             List<FlightInfoPartial> Incoming = new List<FlightInfoPartial>();
             List<FlightInfoPartial> Outgoing = new List<FlightInfoPartial>();
-
 
             //asinc!!!!!!!!!!!
 
@@ -62,13 +57,14 @@ namespace DAL
                 return Result;
             }
         }
+
         public FlightInfo GetFlight(string sourceID)
         {
             FlightInfo result = new FlightInfo();
             using (var webClient = new System.Net.WebClient())
             {
                 var json = webClient.DownloadString(FlightURL + sourceID);
-                result = JsonConvert.DeserializeObject<FlightInfo>(json);             
+                result = JsonConvert.DeserializeObject<FlightInfo>(json);
             }
             return result;
         }

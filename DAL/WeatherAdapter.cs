@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BE.Models;
+﻿using BE.Models;
 
 namespace DAL
 {
@@ -25,8 +20,5 @@ namespace DAL
             }
             return Result;
         }
-
-
-
     }
 }

@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BE.Models;
+﻿using BE.Models;
 
 namespace PLGUI.ViewModel
 {
     public class WeatherUCVM : BaseViewModel
     {
         private WeatherSystem _weatherSystem;
+
         public WeatherSystem WeatherSystem
         {
             get { return _weatherSystem; }
@@ -19,9 +15,24 @@ namespace PLGUI.ViewModel
                 OnPropertyChanged("WeatherSystem");
             }
         }
-        public WeatherUCVM()
-        {
 
+        private static WeatherUCVM instance = null;
+
+        public static WeatherUCVM Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new WeatherUCVM();
+                }
+                return instance;
+            }
+        }
+
+        private WeatherUCVM()
+        {
+            WeatherSystem = new WeatherSystem();
         }
     }
 }

@@ -1,44 +1,46 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BE.Models;
+﻿using BE.Models;
 using BL;
+using System;
 
 namespace PLGUI.Models
 {
-    class FlightDataModel
+    internal class FlightDataModel
     {
-        IFlightBL Bl;
+        private IFlightBL Bl;
         private FlightInfoPartial SelectedFlight;
-        public FlightInfoPartial selectedFlight {
+
+        public FlightInfoPartial selectedFlight
+        {
             get
-            {             
+            {
                 return SelectedFlight;
             }
             set
             {
-                Bl.addFLightToSaves(value);
+                if (value.Id == -1)
+                    Bl.addFLightToSaves(value);
                 SelectedFlight = value;
             }
-            }
+        }
+
         public FlightInfo selectedFlightFullInfo { get; set; }
+
         public FlightDataModel()
         {
             Bl = new FlightBL();
         }
+
         public void getFlightInfo()
         {
             selectedFlightFullInfo = Bl.GetFlightFullInfo(SelectedFlight.SourceId);
         }
-        public Tuple<string,string> pathToFlags
+
+        public Tuple<string, string> pathToFlags
         {
             get
             {
                 return Bl.getPathToFlagsForSourceAndDes(SelectedFlight);
             }
         }
-        
     }
 }

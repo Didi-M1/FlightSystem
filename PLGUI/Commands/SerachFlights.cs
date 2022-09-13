@@ -1,9 +1,6 @@
 ﻿using PLGUI.Modles;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace PLGUI.Commands
@@ -11,8 +8,9 @@ namespace PLGUI.Commands
     public class SerachFlights : ICommand
     {
         public event EventHandler CanExecuteChanged;
-        PLGUI.ViewModel.DatesUCVM VM;
-        FlightModel model = new FlightModel();
+
+        private PLGUI.ViewModel.DatesUCVM VM;
+        private FlightModel model = new FlightModel();
 
         public SerachFlights(PLGUI.ViewModel.DatesUCVM vm)
         {
@@ -27,8 +25,11 @@ namespace PLGUI.Commands
         public void Execute(object parameter)
         {
             if (!CanExecute(parameter)) return;
-            var flights = new System.Collections.ObjectModel.ObservableCollection<BE.Models.FlightInfoPartial>(model.getSavedFlights());
-            VM.Flights = flights;
+            var flights = model.getSavedFlights();
+
+            //get only flights that are in the dates range
+            var flightsInRange = flights.Where(f => f.DateAndTime >= VM.StartDate && f.DateAndTime <= VM.EndDate);
+            VM.Flights = new System.Collections.ObjectModel.ObservableCollection<BE.Models.FlightInfoPartial>(flightsInRange);
         }
     }
 }

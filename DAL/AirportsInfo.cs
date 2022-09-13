@@ -1,19 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Net;
+﻿using BE.Models;
 using Newtonsoft.Json.Linq;
-using BE.Models;
-
+using System;
 
 namespace DAL
 {
     public class AirportsInfo
     {
-        string url = "https://airlabs.co/api/v9/airports?";
-        string apiKey = "4e775779-9df6-4d2c-a119-1a73b319cae0";
+        private string url = "https://airlabs.co/api/v9/airports?";
+        private string apiKey = "4e775779-9df6-4d2c-a119-1a73b319cae0";
+
         private AirPort getAirPortinfoFromLocal(string iata_code)
         {
             try
@@ -26,6 +21,7 @@ namespace DAL
                 return null;
             }
         }
+
         private AirPort GetAirportFromWeb(string iata_code)
         {
             AirPort result = new AirPort();
@@ -44,7 +40,7 @@ namespace DAL
                     result.Location.lat = (double)item["lat"];
                     result.Location.lon = (double)item["lng"];
                     result.country = (string)item["country_code"];
-                }               
+                }
                 return result;
             }
             catch
@@ -52,13 +48,14 @@ namespace DAL
                 return null;
             }
         }
+
         public AirPort getAirPortinfo(string iata_code)
         {
             AirPort result = getAirPortinfoFromLocal(iata_code);
             if (result != null) return result;
-            result= GetAirportFromWeb(iata_code);
+            result = GetAirportFromWeb(iata_code);
             DBManage dB = new DBManage();
-           dB.AddAirPort(result);
+            dB.AddAirPort(result);
             return result;
         }
     }

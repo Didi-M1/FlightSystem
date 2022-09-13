@@ -1,9 +1,6 @@
-﻿using System;
+﻿using BE.Models;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BE.Models;
 
 namespace DAL
 {
@@ -17,6 +14,7 @@ namespace DAL
                 ctx.SaveChanges();
             }
         }
+
         public AirPort getAirPort(string airCode)
         {
             using (var ctx = new FlightsShowDB())
@@ -24,6 +22,7 @@ namespace DAL
                 return ctx.DBAirports.Find(airCode);
             }
         }
+
         public void AddFlight(FlightInfoPartial flight)
         {
             using (var ctx = new FlightsShowDB())
@@ -31,7 +30,6 @@ namespace DAL
                 ctx.DBFligths.Add(flight);
                 ctx.SaveChanges();
             }
-
         }
 
         public void RemoveFlight(int id)
@@ -41,8 +39,8 @@ namespace DAL
                 ctx.DBFligths.Remove(ctx.DBFligths.Where(F => F.Id == id).FirstOrDefault());
                 ctx.SaveChanges();
             }
-
         }
+
         public List<FlightInfoPartial> getAllFlights()
         {
             using (var ctx = new FlightsShowDB())
@@ -50,7 +48,8 @@ namespace DAL
                 return ctx.DBFligths.ToList();
             }
         }
-        public  FlightInfoPartial GetFlight(int id)
+
+        public FlightInfoPartial GetFlight(int id)
         {
             using (var ctx = new FlightsShowDB())
             {
@@ -59,7 +58,6 @@ namespace DAL
                             select flight;
                 return query.FirstOrDefault();
             }
-
         }
     }
 }

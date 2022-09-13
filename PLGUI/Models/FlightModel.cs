@@ -1,19 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BE.Models;
+﻿using BE.Models;
 using BL;
+using System.Collections.Generic;
+
 namespace PLGUI.Modles
 {
     internal class FlightModel
     {
         //list of flights
         public List<FlightInfoPartial> flights { get; set; }
+
         private IFlightBL Bl;
-        DateTime StartDate { get; set; }
-        DateTime finalDate { get; set; }
+
         public FlightModel()
         {
             Bl = new FlightBL();
@@ -23,23 +20,20 @@ namespace PLGUI.Modles
         {
             return Bl.getAllFlights();
         }
+
         public IEnumerable<FlightInfoPartial> getIncomingFlights()
         {
             return Bl.getAllIncomingFlights();
         }
+
         public IEnumerable<FlightInfoPartial> getFlights()
         {
-            return Bl.getAllIncomingFlights();
+            return Bl.getAllOutgoingFlights();
         }
+
         public IEnumerable<FlightInfoPartial> getSavedFlights()
         {
             return Bl.GetAllSaveFlights();
         }
     }
-   
-
-
-        
-
-    }
-
+}

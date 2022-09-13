@@ -3,9 +3,6 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL
 {
@@ -24,7 +21,7 @@ namespace DAL
                 using (var webClient = new System.Net.WebClient())
                 {
                     var json = webClient.DownloadString(urlNowAndEndWithAWeek);
-                    var holydate= JObject.Parse(json);
+                    var holydate = JObject.Parse(json);
                     foreach (var item in holydate["items"])
                     {
                         HolydatesInfo holydatesInfo = new HolydatesInfo();
@@ -39,8 +36,9 @@ namespace DAL
             {
                 Debug.Print(e.Message);
             }
-        return res;
+            return res;
         }
+
         public List<HolydatesInfo> getHoldayBetweenDates(DateTime start, DateTime end)
         {
             List<HolydatesInfo> res = new List<HolydatesInfo>();
@@ -66,7 +64,6 @@ namespace DAL
                 Debug.Print(e.Message);
             }
             return res;
-
         }
     }
 }

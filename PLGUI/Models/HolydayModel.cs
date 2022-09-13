@@ -1,26 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using  System.Timers;
+﻿using BE.Models;
 using BL;
-using BE.Models;
+using System;
+using System.Collections.Generic;
+
 namespace PLGUI.Models
 {
-    class HolydayModel
+    internal class HolydayModel
     {
-        public List<HolydatesInfo> HolydayList { get; set; }        
-        IFlightBL Bl;
+        public List<HolydatesInfo> HolydayList { get; set; }
+        private IFlightBL Bl;
+
         public HolydayModel()
-        {          
-            Bl = new FlightBL();
-            HolydayList = Bl.isThereAnyHolday(7, DateTime.Now);           
-        }
-        public void updateHolyDayList()
         {
+            Bl = new FlightBL();
             HolydayList = Bl.isThereAnyHolday(7, DateTime.Now);
         }
-       
+
+        public void updateHolyDayList(DateTime date)
+        {
+            HolydayList = Bl.isThereAnyHolday(7, date);
+        }
     }
 }

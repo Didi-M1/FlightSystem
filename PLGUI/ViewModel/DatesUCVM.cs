@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using BE.Models;
+using System;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
-using BE.Models;
 
 namespace PLGUI.ViewModel
 {
     public class DatesUCVM : BaseViewModel
     {
         private ObservableCollection<FlightInfoPartial> flights { get; set; }
+
         public ObservableCollection<FlightInfoPartial> Flights
         {
             get { return flights; }
@@ -23,6 +20,7 @@ namespace PLGUI.ViewModel
         }
 
         private DateTime _startDate;
+
         public DateTime StartDate
         {
             get { return _startDate; }
@@ -32,7 +30,9 @@ namespace PLGUI.ViewModel
                 OnPropertyChanged("StartDate");
             }
         }
+
         private DateTime _endDate;
+
         public DateTime EndDate
         {
             get { return _endDate; }
@@ -44,11 +44,29 @@ namespace PLGUI.ViewModel
         }
 
         public ICommand SerachFlights { get; set; }
+        public ICommand ChangeSelectedFlight { get; set; }
+        private Models.HolydayModel holydayModel;
+
+        public string holydates
+        {
+            get
+            {
+                holydayModel.updateHolyDayList(_endDate);
+                if (holydayModel.HolydayList.Count != 0)
+                {
+                    return holydayModel.HolydayList[0].title;
+                }
+                return null;
+            }
+        }
+
         public DatesUCVM()
         {
             StartDate = DateTime.Now;
             EndDate = DateTime.Now;
             SerachFlights = new Commands.SerachFlights(this);
+            ChangeSelectedFlight = new Commands.ChangeSelectedFlightCommand();
+            holydayModel = new Models.HolydayModel();
         }
     }
 }

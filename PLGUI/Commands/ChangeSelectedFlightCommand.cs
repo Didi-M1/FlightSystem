@@ -1,29 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BE.Models;
+using System;
 using System.Windows.Input;
-using BE.Models;
 
 namespace PLGUI.Commands
 {
-    class ChangeSelectedFlightCommand : ICommand
+    internal class ChangeSelectedFlightCommand : ICommand
     {
         public event EventHandler CanExecuteChanged;
 
-        static ViewModel.MainViewModel VM;
-        ViewModel.FlightDataUCVM flightData;
+        private static ViewModel.MainViewModel VM;
+        private ViewModel.FlightDataUCVM flightData;
 
         public ChangeSelectedFlightCommand(ViewModel.MainViewModel vm)
         {
             VM = vm;
         }
+
         public ChangeSelectedFlightCommand()
         {
             ;
         }
-
 
         public bool CanExecute(object parameter)
         {
@@ -35,6 +31,7 @@ namespace PLGUI.Commands
             if (!CanExecute(parameter)) return;
             if (flightData == null)
                 flightData = ViewModel.FlightDataUCVM.Instance;
+
             if (parameter is FlightInfoPartial)
             {
                 var flight = parameter as FlightInfoPartial;

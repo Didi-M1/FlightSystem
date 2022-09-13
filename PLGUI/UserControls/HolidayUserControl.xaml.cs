@@ -20,12 +20,12 @@ namespace PLGUI.UserControls
     /// </summary>
     public partial class HolidayUserControl : UserControl
     {
-        ViewModel.HolidayUCVM VM;
+        private ViewModel.HolidayUCVM VM;
+
         public HolidayUserControl()
         {
             InitializeComponent();
             VM = new ViewModel.HolidayUCVM();
-            
         }
     }
 }

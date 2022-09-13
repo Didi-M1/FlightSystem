@@ -1,16 +1,11 @@
-﻿using PLGUI.Commands;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 
 namespace PLGUI.ViewModel
 {
     public class MainViewModel : BaseViewModel
     {
         private BaseViewModel _currentUC;
+
         public BaseViewModel CurrentUC
         {
             get { return _currentUC; }
@@ -20,9 +15,11 @@ namespace PLGUI.ViewModel
                 OnPropertyChanged("CurrentUC");
             }
         }
+
         public ICommand ChangeViewMathod { get; set; }
 
         private BaseViewModel flightDataUCVM;
+
         public BaseViewModel choosenFlightUC
         {
             get { return flightDataUCVM; }
@@ -34,6 +31,7 @@ namespace PLGUI.ViewModel
         }
 
         private BaseViewModel weatherUC;
+
         public BaseViewModel WeatherUC
         {
             get { return weatherUC; }
@@ -44,12 +42,11 @@ namespace PLGUI.ViewModel
             }
         }
 
-
         public MainViewModel()
         {
             ChangeViewMathod = new Commands.ChangeViewMathod(this);
             new Commands.ChangeSelectedFlightCommand(this);
+            new Commands.ChangeWeatherCommand(this);
         }
-
     }
 }

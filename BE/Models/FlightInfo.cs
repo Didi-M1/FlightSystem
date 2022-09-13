@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace BE.Models
 {
@@ -10,6 +6,7 @@ namespace BE.Models
     {
         // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
         public Aircraft aircraft;
+
         public Airline airline;
         public Airport airport;
         public Identification identification;
@@ -26,11 +23,11 @@ namespace BE.Models
             this.identification = new Identification();
             this.trail = new List<Trail>();
             this.status = new Status();
-            this.history =  new FlightHistory();
+            this.history = new FlightHistory();
             this.time = new FlightTime();
         }
 
-        public FlightInfo(Aircraft aircraft, Airline airline, Airport airport, Identification identification,   List<Trail> trail, Status status, FlightHistory history, FlightTime time)
+        public FlightInfo(Aircraft aircraft, Airline airline, Airport airport, Identification identification, List<Trail> trail, Status status, FlightHistory history, FlightTime time)
         {
             this.aircraft = aircraft;
             this.airline = airline;
@@ -42,6 +39,7 @@ namespace BE.Models
             this.time = time;
         }
     }
+
     public class Aircraft
     {
         public Model model { get; set; }

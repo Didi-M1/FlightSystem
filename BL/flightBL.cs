@@ -1,12 +1,8 @@
-﻿using System;
+﻿using BE.Models;
+using DAL;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BE.Models;
-using DAL;
-
 
 namespace BL
 {
@@ -25,7 +21,6 @@ namespace BL
 
         public WeatherSystem getWatherInfo(string lat, string lon)
         {
-
             return new WeatherAdapter().GetCurrentWeather(lat, lon);
         }
 
@@ -82,7 +77,6 @@ namespace BL
 
         public Tuple<string, string> getPathToFlagsForSourceAndDes(FlightInfoPartial flight)
         {
-            
             AirportsInfo airports = new AirportsInfo();
             string source = flight.Source;
             string des = flight.Destination;

@@ -1,49 +1,46 @@
 ﻿<UserControl x:Class="PLGUI.UserControls.FlightDataUserControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:PLGUI.UserControls" xmlns:viewmodel="clr-namespace:PLGUI.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:FlightDataUCVM}"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <Canvas x:Name="canvas" Width="800" Height="450">
+             mc:Ignorable="d" d:DesignWidth="800" Height="385">
+    <Grid Margin="0,0,0,10">
+        <Canvas x:Name="canvas" Width="800">
             <Canvas.Background>
                 <VisualBrush Stretch="None">
                     <VisualBrush.Visual>
                         <Image Source="../images/backgrondForFlightData.jpg"
                        Stretch="Fill"
                                Width="800"
-                               Height="450"/>
-
+                               Height="450" />
                     </VisualBrush.Visual>
                 </VisualBrush>
             </Canvas.Background>
-            <Image x:Name="image1" Width="225" Height="180" Canvas.Left="191" Canvas.Top="54" Source="{Binding pathToFlagSorce}" Stretch="Fill"/>
-            <Image x:Name="image2" Width="247" Height="174" Canvas.Left="556" Canvas.Top="44" Source="{Binding pathToFlagDestination}" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <Image x:Name="image1" Width="185" Height="133" Canvas.Left="250" Canvas.Top="226" Source="{Binding pathToFlagSorce,AsyncState=true,NotifyOnSourceUpdated=True}" Stretch="Fill" />
+            <Image x:Name="image2" Width="185" Height="133" Canvas.Left="611" Canvas.Top="226" Source="{Binding pathToFlagDestination,AsyncState=true,NotifyOnSourceUpdated=True}" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <Button x:Name="switchBtn" Content="weather dst"  HorizontalAlignment="Left" VerticalAlignment="Center" Height="44" Width="90" Background="#FF3C3C3C" BorderBrush="White" Foreground="White" FontSize="14"  Canvas.Left="82" Canvas.Top="254" Click="switchBtn_Click" />
+            <Button x:Name="switchBtn1" Content="weather source" HorizontalAlignment="Left" VerticalAlignment="Center" Height="44" Width="90" Background="#FF3C3C3C" BorderBrush="White" Foreground="White" FontSize="12"  Canvas.Left="82" Canvas.Top="303" Click="switchBtn_Click" />
 
-            <Label Name="FlightNumberLable" Content="Flight number:" Canvas.Left="82" Canvas.Top="43" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <Label Name="FlightNumberLable" Content="Flight number:" Canvas.Left="82" Canvas.Top="43" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="18" />
             <!-- Flight source, destination, time, date, passengers, company, model -->
-            <Label Name="FlightSourceLable" Content="Source:" Canvas.Left="82" Canvas.Top="71"/>
-            <Label Name="FlightDestinationLable" Content="Destination:" Canvas.Left="82" Canvas.Top="101"/>
-            <Label Name="FlightTimeLable" Content="Time:" Canvas.Left="82" Canvas.Top="131"/>
+            <Label Name="FlightSourceLable" Content="Source:" Canvas.Left="82" Canvas.Top="71" FontSize="18" />
+            <Label Name="FlightDestinationLable" Content="Destination:" Canvas.Left="82" Canvas.Top="101" FontSize="18" />
+            <Label Name="FlightTimeLable" Content="Time:" Canvas.Left="82" Canvas.Top="131" FontSize="18" />
             <!-- lat and long -->
-            <Label Name="FlightLatitudeLable" Content="Latitude:" Canvas.Left="82" Canvas.Top="191"/>
-            <Label Name="FlightLongitudeLable" Content="Longitude:" Canvas.Left="82" Canvas.Top="221"/>
+            <Label Name="FlightLatitudeLable" Content="Latitude:" Canvas.Left="82" Canvas.Top="191" FontSize="18" />
+            <Label Name="FlightLongitudeLable" Content="Longitude:" Canvas.Left="82" Canvas.Top="221" FontSize="18" />
 
             <!-- another lable for any lable before for the value -->
-            <Label Name="FlightNumberValueLable" Content="{Binding selectedFlight.Id}" Canvas.Left="194" Canvas.Top="41" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40" Width="81"/>
+            <Label FontSize="18" Name="FlightNumberValueLable" Content="{Binding selectedFlight.Id}" Canvas.Left="212" Canvas.Top="43" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40" Width="81" />
             <!-- Flight source, destination, time, date, passengers, company, model -->
-            <Label Name="FlightSourceValueLable" Content="{Binding selectedFlight.SourceId}" Canvas.Left="194" Canvas.Top="71" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-            <Label Name="FlightDestinationValueLable" Content="{Binding selectedFlight.Destination}" Canvas.Left="194" Canvas.Top="101" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-            <Label Name="FlightTimeValueLable" Content="{Binding selectedFlight.DateAndTime}" Canvas.Left="194" Canvas.Top="131" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <Label FontSize="18" Name="FlightSourceValueLable" Content="{Binding selectedFlight.Source}" Canvas.Left="212" Canvas.Top="78" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <Label FontSize="18" Name="FlightDestinationValueLable" Content="{Binding selectedFlight.Destination}" Canvas.Left="212" Canvas.Top="101" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <Label FontSize="18" Name="FlightTimeValueLable" Content="{Binding selectedFlight.DateAndTime}" Canvas.Left="194" Canvas.Top="131" HorizontalAlignment="Left" VerticalAlignment="Center" />
             <!-- lat and long -->
-            <Label Name="FlightLatitudeValueLable" Content="{Binding selectedFlight.Lat}" Canvas.Left="194" Canvas.Top="191" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-            <Label Name="FlightLongitudeValueLable" Content="{Binding selectedFlight.Long}" Canvas.Left="194" Canvas.Top="221" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-            <Image Height="100" Width="107" Canvas.Left="456" Canvas.Top="76" Source="../images/arrowSymble.png" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-0.136,0.477"/>
-
-
-
+            <Label FontSize="18" Name="FlightLatitudeValueLable" Content="{Binding selectedFlight.Lat}" Canvas.Left="194" Canvas.Top="191" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <Label FontSize="18" Name="FlightLongitudeValueLable" Content="{Binding selectedFlight.Long}" Canvas.Left="194" Canvas.Top="221" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <Image Height="100" Width="107" Canvas.Left="466" Canvas.Top="226" Source="../images/arrowSymble.png" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-0.136,0.477" />
         </Canvas>
     </Grid>
 </UserControl>

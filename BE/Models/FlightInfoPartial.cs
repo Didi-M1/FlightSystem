@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 //Microsoft.Maps.MapControl.WPF
 
 namespace BE.Models
@@ -19,12 +16,12 @@ namespace BE.Models
             Source = source;
             Destination = destination;
             FlightCode = flightCode;
-
         }
+
         public FlightInfoPartial()
         {
-
         }
+
         public int Id { get; set; }
 
         public string SourceId { get; set; }
@@ -40,6 +37,5 @@ namespace BE.Models
         public string Destination { get; set; }
 
         public string FlightCode { get; set; }
-
     }
 }

@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BE.Models
 {
     public class HelperClass
     {
-        public HelperClass() { }
+        public HelperClass()
+        { }
 
         //Helper Function to Convert from Unix Epoch time Human DateTime
         public DateTime GetDateTimeFromEpoch(double EpochTimeStamp)
@@ -17,6 +14,7 @@ namespace BE.Models
             start = start.AddSeconds(EpochTimeStamp); //add the seconds to the start DateTime
             return start;
         }
+
         public DateTime GetDateTimeFromString(string date)
         {
             return DateTime.Parse(date);

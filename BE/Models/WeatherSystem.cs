@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using System.ComponentModel.DataAnnotations;
 
@@ -72,7 +69,6 @@ namespace BE.Models
         public double gust { get; set; }
     }
 
-
     public class Address
     {
         public string country { get; set; }
@@ -81,7 +77,6 @@ namespace BE.Models
         public int numHouse { get; set; }
         public int id { get; set; }
         public bool isActive { get; set; }
-
     }
 
     public class AirPort
@@ -90,11 +85,12 @@ namespace BE.Models
         public string country { get; set; }
         public string city { get; set; }
         public string name { get; set; }
+
         [Key]
         [MaxLength(5)]
         public string id { get; set; }
-        public bool isActive { get; set; }
 
+        public bool isActive { get; set; }
     }
 
     public class Flight
@@ -106,7 +102,6 @@ namespace BE.Models
         public TimeSpan duration { get; set; }
         public bool isBag { get; set; }
         public int countSeats { get; set; }
-
     }
 
     public class User
@@ -121,7 +116,6 @@ namespace BE.Models
         public DateTime birthday { get; set; }
         public bool isActive { get; set; }
         public Address address { get; set; }
-
     }
 
     public class UserFlight
@@ -134,17 +128,14 @@ namespace BE.Models
         //public flightStatus
     }
 
-
-
-
-    enum Department
+    internal enum Department
     {
         businessClass,
         touristClass,
         firstClass
     }
 
-    enum flightStatus
+    internal enum flightStatus
     {
         Paid,
         Ordered,

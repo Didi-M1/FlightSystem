@@ -24,7 +24,8 @@ namespace PLGUI
     /// </summary>
     public partial class MainWindow : Window
     {
-        PLGUI.ViewModel.MainViewModel VM;
+        private PLGUI.ViewModel.MainViewModel VM;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -33,5 +34,3 @@ namespace PLGUI
         }
     }
 }
-
-

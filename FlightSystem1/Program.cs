@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using  DAL;
+﻿using DAL;
+using System;
 
 namespace FlightSystem1
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             TrafficAdapter traffic = new TrafficAdapter();
             var flights = traffic.GetCurrentFlights();
@@ -19,12 +15,10 @@ namespace FlightSystem1
                 var airPort = new AirportsInfo();
                 var airPortInfo = airPort.getAirPortinfo(airPortName);
                 var weather = new WeatherAdapter();
-                var weatherInfo = weather.GetCurrentWeather(airPortInfo.Location.lat.ToString(), airPortInfo.Location.lon.ToString()) ;
+                var weatherInfo = weather.GetCurrentWeather(airPortInfo.Location.lat.ToString(), airPortInfo.Location.lon.ToString());
                 Console.WriteLine(weatherInfo);
                 Console.WriteLine(flight);
             }
-            
-
         }
     }
 }

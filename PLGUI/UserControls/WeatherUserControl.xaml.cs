@@ -1,17 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows.Controls;
 
 namespace PLGUI.UserControls
 {
@@ -20,11 +7,12 @@ namespace PLGUI.UserControls
     /// </summary>
     public partial class WeatherUserControl : UserControl
     {
-        ViewModel.WeatherUCVM vm;
+        private ViewModel.WeatherUCVM vm;
+
         public WeatherUserControl()
         {
             InitializeComponent();
-            vm = new ViewModel.WeatherUCVM();
+            vm = ViewModel.WeatherUCVM.Instance;
             this.DataContext = vm;
         }
     }

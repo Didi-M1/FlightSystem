@@ -1,19 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Net;
 using System.IO;
+using System.Net;
 
 namespace DAL
 {
     public class FlagByCountrey
     {
-        string url = "https://countryflagsapi.com/png/";
+        private string url = "https://countryflagsapi.com/png/";
+
         public string getImageByName(string countryName = "")
         {
-            string path = @"..\..\images\" + countryName + ".png";
+            string path = @"C:\flight\PLGUI\images\" + countryName + ".png";
             //if the file is already exist
             if (File.Exists(path))
             {
